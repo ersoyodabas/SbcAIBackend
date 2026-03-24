@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Sbc.SERVICE/1.0.0": {
+        "dependencies": {
+          "Sbc.DTO": "1.0.0"
+        },
+        "runtime": {
+          "Sbc.SERVICE.dll": {}
+        }
+      },
+      "Sbc.DTO/1.0.0": {
+        "runtime": {
+          "Sbc.DTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sbc.SERVICE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sbc.DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

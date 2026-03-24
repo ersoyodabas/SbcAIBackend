@@ -1,0 +1,15 @@
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\bin\Debug\net9.0\Sbc.DAL.deps.json
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\bin\Debug\net9.0\Sbc.DAL.runtimeconfig.json
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\bin\Debug\net9.0\Sbc.DAL.dll
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\bin\Debug\net9.0\Sbc.DAL.pdb
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.csproj.AssemblyReference.cache
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.AssemblyInfoInputs.cache
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.AssemblyInfo.cs
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.csproj.CoreCompileInputs.cache
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.sourcelink.json
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.dll
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\refint\Sbc.DAL.dll
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.pdb
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\Sbc.DAL.genruntimeconfig.cache
+C:\Projects\ERSOY\SbcAI\SbcAIBackend\DAL\obj\Debug\net9.0\ref\Sbc.DAL.dll

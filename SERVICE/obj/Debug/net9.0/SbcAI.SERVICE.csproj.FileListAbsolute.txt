@@ -1,0 +1,16 @@
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\bin\Debug\net9.0\Sbc.SERVICE.deps.json
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\bin\Debug\net9.0\Sbc.SERVICE.dll
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\bin\Debug\net9.0\Sbc.SERVICE.pdb
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\bin\Debug\net9.0\Sbc.DTO.dll
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\bin\Debug\net9.0\Sbc.DTO.pdb
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.csproj.AssemblyReference.cache
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.AssemblyInfoInputs.cache
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.AssemblyInfo.cs
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.csproj.CoreCompileInputs.cache
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.sourcelink.json
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SE.1D8C1BFB.Up2Date
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.dll
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\refint\Sbc.SERVICE.dll
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\Sbc.SERVICE.pdb
+C:\Projects\ERSOY\Sbc\SbcAIBackend\SERVICE\obj\Debug\net9.0\ref\Sbc.SERVICE.dll
