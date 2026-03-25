@@ -19,6 +19,8 @@ namespace Sbc.DTO
 
         public DateTime? last_login_date_app { get; set; }
 
+        public DateTime? web_update_time { get; set; }
+
         public DateTime? last_active_date_app { get; set; }
 
         public string? last_used_ip { get; set; }

@@ -13,7 +13,7 @@ namespace Sbc.DAL.Repositories
     public class GenericRepository<TEntity> where TEntity : class
     {
         private readonly DbSet<TEntity> _dbSet;
-        private readonly _DbContext _context;
+        protected readonly _DbContext _context;
 
         public GenericRepository()
         {
