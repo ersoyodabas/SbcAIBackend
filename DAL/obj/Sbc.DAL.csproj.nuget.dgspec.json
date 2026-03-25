@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ersoyo/Projects/SbcAI/Backend/DAL/Sbc.DAL.csproj": {}
+    "C:\\Projects\\ERSOY\\SbcAI\\Backend\\DAL\\Sbc.DAL.csproj": {}
   },
   "projects": {
-    "/Users/ersoyo/Projects/SbcAI/Backend/DAL/Sbc.DAL.csproj": {
+    "C:\\Projects\\ERSOY\\SbcAI\\Backend\\DAL\\Sbc.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ersoyo/Projects/SbcAI/Backend/DAL/Sbc.DAL.csproj",
+        "projectUniqueName": "C:\\Projects\\ERSOY\\SbcAI\\Backend\\DAL\\Sbc.DAL.csproj",
         "projectName": "Sbc.DAL",
-        "projectPath": "/Users/ersoyo/Projects/SbcAI/Backend/DAL/Sbc.DAL.csproj",
-        "packagesPath": "/Users/ersoyo/.nuget/packages/",
-        "outputPath": "/Users/ersoyo/Projects/SbcAI/Backend/DAL/obj/",
+        "projectPath": "C:\\Projects\\ERSOY\\SbcAI\\Backend\\DAL\\Sbc.DAL.csproj",
+        "packagesPath": "C:\\Users\\ersoyo\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\ERSOY\\SbcAI\\Backend\\DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/ersoyo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ersoyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "/opt/homebrew/Cellar/dotnet@9/9.0.115/libexec/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -76,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@9/9.0.115/libexec/sdk/9.0.115/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
