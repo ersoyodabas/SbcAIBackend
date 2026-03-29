@@ -70,5 +70,50 @@ namespace Sbc.SERVICE
                 };
             }
         }
+
+        public async Task<ReturnObject> GetUserByEmailAsync(string email)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    return new ReturnObject
+                    {
+                        result = false,
+                        message = "Email gereklidir.",
+                        data = null
+                    };
+                }
+
+                var user = await _userRepository.GetUserByEmailAsync(email);
+                
+                if (user == null)
+                {
+                    return new ReturnObject
+                    {
+                        result = false,
+                        message = "Kullanıcı bulunamadı.",
+                        data = null
+                    };
+                }
+
+                var dto = MapEntityToDto(user);
+                return new ReturnObject
+                {
+                    result = true,
+                    message = "Kullanıcı getirildi.",
+                    data = dto
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReturnObject
+                {
+                    result = false,
+                    message = $"Hata: {ex.Message}",
+                    data = null
+                };
+            }
+        }
     }
 }

@@ -83,5 +83,14 @@ namespace Sbc.DAL.Repositories
 
             return (items, total);
         }
+
+        public async Task<user?> GetUserByEmailAsync(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return null;
+
+            return await AsQueryable()
+                .FirstOrDefaultAsync(u => u.email.ToLower() == email.ToLower());
+        }
     }
 }

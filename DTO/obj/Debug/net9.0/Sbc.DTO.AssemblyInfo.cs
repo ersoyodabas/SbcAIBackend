@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sbc.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2384b52e562a417a0d2d5d576c6a27e2742a5401")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33b69dc7c7d3bda430c356cd1c6ed542c0bb7f2c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sbc.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sbc.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
