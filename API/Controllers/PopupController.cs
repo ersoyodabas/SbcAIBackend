@@ -20,14 +20,14 @@ namespace Sbc.API.Controllers
             _userLoginService = userLoginService;
         }
 
-        [HttpGet("login-screen")]
-        public IActionResult LoginScreen()
+        [HttpPost("login-screen")]
+        public async Task<IActionResult> LoginScreen([FromBody] LoginRequest request)
         {
             try
             {
                 var basePath = Path.Combine(_hostEnvironment.ContentRootPath, "..", "ExtensionJS", "server_scripts", "views", "login");
-                var locPath = Path.Combine(_hostEnvironment.ContentRootPath, "..", "ExtensionJS", "server_scripts", "loc",	"popup");
-                
+                var locPath = Path.Combine(_hostEnvironment.ContentRootPath, "..", "ExtensionJS", "server_scripts", "loc", "popup");
+
                 var htmlPath = Path.Combine(basePath, "login.html");
                 var cssPath = Path.Combine(basePath, "login.css");
 
@@ -58,11 +58,93 @@ namespace Sbc.API.Controllers
                     }
                 }
 
+                // If user data provided (Google login session exists), get user subscription info
+                if (request != null && !string.IsNullOrEmpty(request.Email) && !string.IsNullOrEmpty(request.GoogleId))
+                {
+                    Console.WriteLine($"📱 Login screen POST - User info received: {request.Email}");
+                    
+                    var userResult = await _userService.GetUserByEmailAsync(request.Email);
+
+                    if (userResult.result && userResult.data != null)
+                    {
+                        var user = (UserDto)userResult.data;
+                        Console.WriteLine($"✅ User found: ID={user.id}, Email={user.email}");
+
+                        // Calculate subscription days left
+                        var subscriptionLeftDays = user.membership_end_date.HasValue 
+                            ? (user.membership_end_date.Value - DateTime.UtcNow).Days 
+                            : 0;
+
+                        // Add user subscription data to response
+                        responseDict["subscription_left_day"] = subscriptionLeftDays;
+                        responseDict["lang_app"] = user.lang_app ?? "en";
+
+                        Console.WriteLine($"💾 Subscription data added - Days: {subscriptionLeftDays}, Lang: {user.lang_app}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"⚠️ User not found for email: {request.Email}");
+                        // Return default values
+                        responseDict["subscription_left_day"] = 0;
+                        responseDict["lang_app"] = request.Lang ?? "en";
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("📱 Login screen POST - No user data provided (new/guest user)");
+                }
+
                 return Ok(responseDict);
             }
             catch (Exception ex)
             {
                 return BadRequest(new { message = "Error reading login files", error = ex.Message });
+            }
+        }
+
+        [HttpGet("popup-screen")]
+        public IActionResult PopupScreen()
+        {
+            try
+            {
+                var basePath = Path.Combine(_hostEnvironment.ContentRootPath, "..", "ExtensionJS", "server_scripts", "popup");
+                var locPath = Path.Combine(_hostEnvironment.ContentRootPath, "..", "ExtensionJS", "server_scripts", "loc", "popup");
+                
+                var htmlPath = Path.Combine(basePath, "popup.html");
+                var cssPath = Path.Combine(basePath, "styles.css");
+
+                if (!System.IO.File.Exists(htmlPath) || !System.IO.File.Exists(cssPath))
+                {
+                    return NotFound(new { message = "Popup files not found", htmlExists = System.IO.File.Exists(htmlPath), cssExists = System.IO.File.Exists(cssPath) });
+                }
+
+                var htmlContent = System.IO.File.ReadAllText(htmlPath);
+                var cssContent = System.IO.File.ReadAllText(cssPath);
+
+                // Read all JSON files from loc directory
+                var responseDict = new Dictionary<string, object>
+                {
+                    { "html", htmlContent },
+                    { "css", cssContent }
+                };
+
+                if (System.IO.Directory.Exists(locPath))
+                {
+                    var jsonFiles = System.IO.Directory.GetFiles(locPath, "*.json");
+                    foreach (var jsonFile in jsonFiles)
+                    {
+                        var fileName = Path.GetFileNameWithoutExtension(jsonFile);
+                        var fileContent = System.IO.File.ReadAllText(jsonFile);
+                        var jsonData = System.Text.Json.JsonSerializer.Deserialize<object>(fileContent);
+                        responseDict.Add($"loc_{fileName}", jsonData);
+                    }
+                }
+
+                return Ok(responseDict);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = "Error reading popup files", error = ex.Message });
             }
         }
 

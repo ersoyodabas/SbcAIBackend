@@ -1,0 +1,264 @@
+<!-- Feature 1: Squad Settings Detail Panel -->
+<div class="sbc-feature-detail-panel" id="feature1-detail">
+    <div class="sbc-detail-header">
+        <h2>⚙️ Ayarlar & Seçenekler</h2>
+        <p class="sbc-detail-description">Feature 1 için detaylı ayarları yönetin</p>
+    </div>
+
+    <div class="sbc-settings-list">
+        <!-- Setting 1: Use SYS Squad -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Use Sys Squad</h3>
+                <p>Sistem tarafından önerilen squad yapısını kullan</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-sys-squad" class="toggle-input" data-setting="use_sys_squad" checked>
+                    <label for="setting-sys-squad" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting 2: Auto Update Squad -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Otomatik Squad Güncelle</h3>
+                <p>Squad'ı otomatik olarak güncel tutun</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-auto-update" class="toggle-input" data-setting="auto_update_squad" checked>
+                    <label for="setting-auto-update" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting 3: Advanced Analytics -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Gelişmiş Analitik</h3>
+                <p>Detaylı performans analitiğini göster</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-analytics" class="toggle-input" data-setting="advanced_analytics">
+                    <label for="setting-analytics" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting 4: Real-time Notifications -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Gerçek Zamanlı Bildirimler</h3>
+                <p>Önemli olaylar için bildirimleri etkinleştir</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-notifications" class="toggle-input" data-setting="realtime_notifications" checked>
+                    <label for="setting-notifications" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting 5: Debug Mode -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Hata Ayıklama Modu</h3>
+                <p>Teknik detayları göster (Geliştiriciler için)</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-debug" class="toggle-input" data-setting="debug_mode">
+                    <label for="setting-debug" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setting 6: Cloud Sync -->
+        <div class="sbc-setting-item">
+            <div class="sbc-setting-left">
+                <h3>Buluta Senkronize Et</h3>
+                <p>Ayarlarını buluta kaydet ve tüm cihazlarda senkronize et</p>
+            </div>
+            <div class="sbc-setting-right">
+                <div class="sbc-toggle-switch">
+                    <input type="checkbox" id="setting-cloud-sync" class="toggle-input" data-setting="cloud_sync" checked>
+                    <label for="setting-cloud-sync" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Settings Button -->
+    <div class="sbc-settings-action">
+        <button class="sbc-btn-save-settings">💾 Ayarları Kaydet</button>
+    </div>
+</div>
+
+<style>
+    .sbc-feature-detail-panel {
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(17, 13, 25, 0.95), rgba(20, 15, 30, 0.95));
+        border-radius: 12px;
+        color: #e0e0e0;
+    }
+    
+    .sbc-detail-header {
+        margin-bottom: 25px;
+        border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+        padding-bottom: 15px;
+    }
+    
+    .sbc-detail-header h2 {
+        color: #00d4ff;
+        font-size: 20px;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+    }
+    
+    .sbc-detail-description {
+        font-size: 13px;
+        color: #888;
+        margin: 0;
+    }
+    
+    .sbc-settings-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .sbc-setting-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 16px;
+        background: rgba(0, 212, 255, 0.05);
+        border-left: 3px solid #00d4ff;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .sbc-setting-item:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-left-color: #00ffff;
+        box-shadow: 0 2px 8px rgba(0, 212, 255, 0.15);
+    }
+    
+    .sbc-setting-left {
+        flex: 1;
+    }
+    
+    .sbc-setting-left h3 {
+        margin: 0 0 4px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #00d4ff;
+    }
+    
+    .sbc-setting-left p {
+        margin: 0;
+        font-size: 12px;
+        color: #888;
+    }
+    
+    .sbc-setting-right {
+        margin-left: 20px;
+    }
+    /* Toggle Switch Styles */
+    
+    .sbc-toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+    }
+    
+    .toggle-input {
+        display: none;
+    }
+    
+    .toggle-label {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #333;
+        border-radius: 14px;
+        transition: background-color 0.3s ease;
+        border: 1px solid #444;
+    }
+    
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        width: 24px;
+        background-color: #666;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    
+    .toggle-input:checked+.toggle-label {
+        background-color: #00d4ff;
+        border-color: #0099cc;
+    }
+    
+    .toggle-input:checked+.toggle-label .toggle-slider {
+        left: calc(100% - 26px);
+        background-color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 212, 255, 0.4);
+    }
+    /* Settings Action */
+    
+    .sbc-settings-action {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0, 212, 255, 0.1);
+    }
+    
+    .sbc-btn-save-settings {
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #00d4ff, #0099cc);
+        color: #000;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+    }
+    
+    .sbc-btn-save-settings:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 212, 255, 0.5);
+    }
+    
+    .sbc-btn-save-settings:active {
+        transform: translateY(0);
+    }
+</style>

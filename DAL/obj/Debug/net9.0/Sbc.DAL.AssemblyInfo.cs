@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sbc.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33b69dc7c7d3bda430c356cd1c6ed542c0bb7f2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+636cc502e5b26bfd89e862a0b839905419ff2eef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sbc.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sbc.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
