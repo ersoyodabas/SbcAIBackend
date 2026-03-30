@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sbc.WORKER")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33b69dc7c7d3bda430c356cd1c6ed542c0bb7f2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a23022079e8555ae7535ae38dfd519cad758479")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sbc.WORKER")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sbc.WORKER")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,162 @@
+﻿<!-- PAKET -->
+<div id="screenpacking" class="menu-box" style="width:320px;">
+
+    <div class="content_box">
+        <!-- ÜST MENÜLER -->
+        <div class="row sbc-tabs" id="packMasterButtons">
+            <div class="d-flex w-100">
+                <!-- <button id="btn_pack_preview" class="pack-master-top-menu px-2"> </button> -->
+                <button id="btn_pack_open" class="pack-master-top-menu px-2"> </button>
+                <button id="btn_pack_buy" class="pack-master-top-menu px-2"> </button>
+            </div>
+        </div>
+        <hr class="mb-3 mt-3" />
+
+        <!-- PAKET AÇMA TABI -->
+        <div id="openPackTab" class="content-section mt-2 mb-1" hidden>
+            <table id="packTable" class="w-100 text-white" style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td><span id="spanPackOpenTradeables" class="ml-2 text-faded">Satılabilir Paketleri Aç</span></td>
+                    <td style="text-align: right;">
+                        <label class="switch">
+                <input id="inputPackOpenTradeables" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="spanPackOpenUnTradeables" class="ml-2 text-faded">Satılamaz Paketleri Aç</span></td>
+                    <td style="text-align: right;">
+                        <label class="switch">
+                <input id="inputPackOpenUnTradeables" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://www.ea.com/ea-sports-fc/ultimate-team/web-app/content/25E4CDAE-799B-45BE-B257-667FDCDE8044/2025/fut/packs/images/web/packs_backgrounds_1.png" height="20px" class="ml-2" />
+                        <span id="packing_bronze_packs" class="ml-2 text-faded">Bronz Paketler</span>
+                    </td>
+                    <td style="text-align: right;">
+                        <label class="switch">
+                <input id="intput_pack_bronzes" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://www.ea.com/ea-sports-fc/ultimate-team/web-app/content/25E4CDAE-799B-45BE-B257-667FDCDE8044/2025/fut/packs/images/web/packs_backgrounds_2.png" height="25px" class="ml-2" />
+                        <span id="packing_silver_packs" class="ml-2 text-faded">Gümüş Paketler</span>
+                    </td>
+                    <td style="text-align: right;">
+                        <label class="switch">
+                <input id="intput_pack_silvers" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://www.ea.com/ea-sports-fc/ultimate-team/web-app/content/25E4CDAE-799B-45BE-B257-667FDCDE8044/2025/fut/packs/images/web/packs_backgrounds_3.png" height="30px" class="ml-2" />
+                        <span id="packing_other_packs" class="ml-2 text-faded">Diğer Paketler</span>
+                    </td>
+                    <td style="text-align: right;">
+                        <label class="switch">
+                <input id="intput_pack_others" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <span id="tmarket_player_pick" class="px-2">Oyuncu Seçimi Beklemesi</span>
+
+                        <!-- <span id="tmarket_player_pick_desc" hidden class="opacity-50"></span> -->
+
+                        <select id="tmarket_player_pick_option_id" name="tmarket_player_pick_option_id" class="customInput ml-1" style="width:173px">
+            </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!-- DİNAMİK PAKETLER -->
+        <div id="storePacks" class="content-section mt-2 mb-3" hidden>
+            <div id="storePackContent"></div>
+        </div>
+
+
+        <table class="w-100 text-white" style="width: 100%; border-collapse: collapse;">
+            <!-- DİNAMİK PAKETLER -->
+            <tr id="package-use-fp">
+                <td style="vertical-align: middle;">
+                    <span id="spanUseFP" class="ml-2 text-faded">FC Point</span>
+                </td>
+                <td style="text-align: right; vertical-align: middle;">
+                    <label class="switch">
+                <input id="input_use_fp" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">
+                    <span id="spanPackSound" class="ml-2 text-faded">Ses Efekti</span>
+                </td>
+                <td style="text-align: right; vertical-align: middle;">
+                    <label class="switch">
+                <input id="inputPackSound" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">
+                    <span id="spanPackAnimationSkip" class="ml-2 text-faded">Animasyonu Atla</span>
+                </td>
+                <td style="text-align: right; vertical-align: middle;">
+                    <label class="switch">
+                <input id="inputPackAnimationSkip" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    <div id="packLogData" class="mt-2" hidden>
+        <hr class="mt-2 mb-2">
+
+        <table id="packLogTable" border="1" style="width: 100%; border-collapse: collapse;">
+            <tbody>
+                <!-- Satırlar buraya eklenecek -->
+            </tbody>
+        </table>
+    </div>
+
+</div>

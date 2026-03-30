@@ -10,5 +10,6 @@ namespace Sbc.SERVICE
         Task<ReturnObject> DeleteUserAsync(int id);
         Task<ReturnObject> GetUsersPagedAsync(int page, int pageSize, string? search, string? role, bool? active, bool? banned, string? sortBy, bool sortDesc);
         Task<ReturnObject> GetUserByEmailAsync(string email);
+        Task<ReturnObject> GetUserForLoginPanelAsync(string email);
     }
 }

@@ -1,0 +1,762 @@
+﻿<div id="screensbc" class="menu-box" style="min-width: 400px;">
+    <div class="menu-box d-flex">
+        <div class="sbcleft" id="modalsbcdetail" class="container" hidden>
+            <div class="modal-card">
+                <div class="modal-actions">
+                    <div class="headerLeft">
+                        <div class="dropdown ml-1">
+                            <button class="dropbtn" id="settingsBtn">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" class="quickSquadOptions" id="positionOption">Pozisyonları Ayarla</a>
+                                <a href="#" class="quickSquadOptions" id="qualityGoldCommon">Tüm Kaliteler : Altın Normal </a>
+                                <a href="#" class="quickSquadOptions" id="qualitySilver">Tüm Kaliteler : Gümüş </a>
+                                <a href="#" class="quickSquadOptions" id="leagueNWSL">Tüm Ligler : NWSL </a>
+                                <a href="#" class="quickSquadOptions" id="nationUSA">Tüm Uyruklar : USA </a>
+                                <a href="#" class="quickSquadOptions" id="reset"> Sıfırla </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="headerRight">
+                        <button id="btnDeleteSbc" class="btn-icon btn-danger-icon" style="width: 80px; height: 30px;">
+                            <i class="fas fa-trash"></i>
+                            <span id="lblDelete" class="ml-1"></span>
+                        </button>
+                        <button id="btnSaveSbc" class="btn-icon btn-success-icon" style="width: 80px; height: 30px;">
+                            <i class="fas fa-check"></i> 
+                            <span id="lblSave" class="ml-1"></span>
+                        </button>
+                        <button id="btn-back" class="btn-close-custom"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <hr style="margin-top: 5    px;" class="mb-2">
+                <!-- ÜST İNPUTLAR 2 ROWS -->
+                <div id="sbcDetailRight">
+                    <div class="row">
+                        <div class="col-6 form-group-row" id="sbcLangEn">
+                            <!-- <img src="https://flagcdn.com/w40/gb.png" height="20" width="30" />
+                                <input id="sbclangen" class="ml-2 sbcLangs" type="text"> -->
+                        </div>
+                        <div class="col form-group-row">
+                            <label id="spanSbcDaily"></label>
+                            <input type="checkbox" id="inputSbcDaily" class="form-check-input">
+                        </div>
+                        <div class="col form-group-row" id="sbcDivUseFilter">
+                            <label id="spanUseFilter"></label>
+                            <input type="checkbox" id="ckUseSQB" class="form-check-input" checked>
+                        </div>
+                        <div class="col form-group-row">
+                            <label id="spanSbcActive"></label>
+                            <input type="checkbox" id="inputSbcDetailActive" class="form-check-input" checked>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group-row" id="sbcLangTr">
+                            <!-- <img src="https://flagcdn.com/w40/tr.png" height="20" />
+                                <input  id="sbclangtr" class="ml-2 " type="text" placeholder="87 Reytingli Kadro"> -->
+                        </div>
+
+                        <!-- <div class="col-2 form-group-row" id="sbcDivStartup">
+                                <label  id="spanSbcStartup"></label>
+                                <input type="checkbox"  id="inputSbcStartup" class="form-check-input" checked>
+                            </div> -->
+                        <div class="col-2 form-group-row" id="sbcDivSortNumber">
+                            <label id="spanSbcSortNumber"></label>
+                            <input type="number" id="inputSbcSortNumber" class="sira-no-input" value="1">
+                        </div>
+                        <div class="col-2 form-group-row tradebleDiv">
+                            <label id="spanTradeable"></label>
+                            <input type="checkbox" id="inputSbcTradeable" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AYIRAÇ -->
+                <hr class="mt-2 mb-3" />
+
+
+                <!-- ALT KISIM -->
+                <div id="sbcDetailLeft"></div>
+
+
+                <!-- MY SQUAD -->
+                <div class="row mb-2" id="squadOptionsContainer" hidden>
+                    <div class="col-4" id="sbcPlayerOwners">
+                        <button id="btnSquatDefault" class="squat-button tab-menu-squads selected"></button>
+                        <button id="btnSquatMy" class="squat-button tab-menu-squads">
+                                <i id="btnSquatMyIcon" class="fa-solid fa-user"></i>
+                                <span id="btnSquatMySpan"  class="px-2"></span>
+                            </button>
+                    </div>
+                    <div class="col-7" id="sbcUserSettings" hidden>
+                        <div class="col-48 d-flex">
+                            <label id="sbcActive" class="fut-font ml-2"></label>
+                            <label class="switch ml-3">
+                                    <input id="sbcUserActive" class="sbcOption" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+
+                            <div id="squadMyPlayersActivity">
+                                <div class="d-flex ml-4">
+                                    <span id="activeSquad"></span>
+                                    <label class="switch px-2">
+                                            <input  id="setMySquadActivity" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                </div>
+                            </div>
+
+
+                            <label id="labelDaily" class="fut-font" style="margin-left:30px;"></label>
+                            <label class="switch ml-3">
+                                    <input id="sbcUserDaily" class="sbcOption" type="checkbox" >
+                                    <span class="slider round"></span>
+                                </label>
+
+                            <label id="labelStartupSbc" class="fut-font" style="margin-left:30px;"></label>
+                            <label class="switch ml-3">
+                                    <input id="sbcUserStartup" class="sbcOption" type="checkbox" >
+                                    <span class="slider round"></span>
+                                </label>
+                        </div>
+                    </div>
+                    <!-- <div class="col-20">
+                            <button id="cloneSysSquad" hidden class="quick-button-box mt-2 p-2" style="width: 150px;"> Clone System Squad </button>
+                        </div> -->
+                </div>
+
+
+
+                <!-- ALT KISIM REQS -->
+                <div class="row" id="sbc_reqs">
+                    <div class="col-12">
+                        <table id="req-table" class="w-100">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" id="td_scope"></th>
+                                    <th class="text-center" id="td_quality"></th>
+                                    <th class="text-center" style="width:265px !important" id="td_rarity"></th>
+                                    <th class="text-center" style="min-width:30px !important;" id="td_count"></th>
+                                    <th class="text-center" id="td_rating"></th>
+                                    <th class="text-center" id="td_rating_range"></th>
+                                    <th class="text-center" style="min-width:30px !important;" id="td_active"></th>
+                                    <th class="no-padding" style="min-width:30px !important;">
+                                        <button id="btn-add-req" class="btn btn-success btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="req-body">
+                                <!-- <tr id="trSquadRowCode"> -->
+                                <!-- <td>
+                                        <div class="req-title mt-1">Req. Code</div>
+                                    </td>
+                                    <td>
+                                        <div class="row-inputs">
+                                            <select id="req_codes" name="req_codes" class="customInput code">
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr> -->
+                                <!-- <tr>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            Quality
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="quality" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td style="min-width: 420px;">
+                                        <div id="quality-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr> -->
+
+                                <!-- <tr>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            Rarity
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="rarity" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div id="rarity-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr>
+                                -->
+                                <!-- <tr>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            Rating
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="rating" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div id="rating-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr> -->
+
+                                <!-- <tr hidden>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            League
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="league" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div id="league-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr>
+                                
+                                <tr hidden>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            Nation
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="nation" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div id="nation-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr>
+
+
+                                
+                                <tr hidden>
+                                    <td class="d-flex">
+                                        <div class="req-title">
+                                            Club
+                                        </div>
+                                        <button class="btn-action req-add-btn" data-type="club" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div id="club-group" class="dynamic-group"></div>
+                                    </td>
+                                </tr> -->
+
+                                <!-- <tr>
+                                    <td>Squad Chem.</td>
+                                    <td>
+                                    <div class="row-inputs">
+                                        <input id="squad-chemistry" style="width:70px;text-align:center;" class="customInput" type="number" >
+                                        </div>
+                                    </td>
+                            </tr> -->
+
+                                <!-- <tr>
+                                    <td>
+                                        <div class="req-title">Squad Size</div>
+                                    </td>
+                                    <td>
+                                    <div class="row-inputs">
+                                        <input id="squad-size" style="width:70px;text-align:center;" class="customInput" type="number" >
+                                        </div>
+                                    </td>
+                            </tr> -->
+
+                                <!-- <tr>
+                                    <td>Squad Price</td>
+                                    <td>
+                                    <div class="row-inputs">
+                                        <input id="squad-price" style="width:70px;text-align:center;" class="customInput" type="number" >
+                                        </div>
+                                    </td>
+                            </tr> -->
+
+                                <!-- <tr>
+                                    <td>Allow Special Cards</td>
+                                    <td>
+                                        <div class="row-inputs">
+                                            <label class="switch">
+                                                <input id="squad-use-specials" class="sbcOption" type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <textarea id="output" hidden class="customInput"></textarea>
+                    </div>
+                </div>
+
+                <hr class="mt-2 mb-3">
+
+                <!-- PLAYER TABLE -->
+                <div id="sbc_players">
+                    <div class="row mb-3" id="divFutbin">
+                        <div class="col-12 col-label d-flex ">
+                            <span id="spanSbcFutbin" class="mt-1 ml-1"></span>
+                            <input id="inputSbcDetailFutbin" class="customInput px-2" style="width: 400px;">
+                            <i class="fa-solid fa-link px-2" id="iNavigateFutbin"></i>
+
+                            <button id="btnFindIntegrationLinkSbc" class="squat-btn btn-md px-2 mt-2" style="background-color: red;" hidden>
+                                    <i class="fas fa-arrow-circle-down"></i> 
+                                    <span> Link Bul </span>
+                                </button>
+
+                            <button id="iGetFromFutbin" class="squat-btn btn-md px-2 mt-2" hidden>
+                                    <i class="fas fa-arrow-circle-down"></i> 
+                                    <span id="spnCopyFromFutbin"></span>
+                                </button>
+
+                            <button id="btnGetFromFutbin" class="squat-btn btn-md px-2 mt-2 btn-success-icon" hidden>
+                                    <i class="fas fa-arrow-circle-down"></i> 
+                                    Futbin Copy
+                                </button>
+
+                            <button id="btnGetFromFUTGG" class="squat-btn btn-md px-2 mt-2" hidden>
+                                    <i class="fas fa-arrow-circle-down"></i> 
+                                    Fut GG Copy
+                                </button>
+
+                            <button id="cloneSysSquad" class="squat-btn btn-md px-2 mt-2" hidden>
+                                    <i class="fas fa-copy"></i> 
+                                    <span id="spanCopyDefaultSquad"></span>
+                                </button>
+                        </div>
+                    </div>
+                    <hr class="mb-3" />
+                    <div class="row" id="divSbcPlayer" style="overflow-x: auto;">
+                        <div class="col-12">
+                            <table id="tblSbcPlayers" class="table w-100"></table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="sbcright">
+
+            <div class="content_box mb-3">
+
+                <!-- <div class="header">
+                    <div class="settings" id="settingsToggle">
+                        <span class="settings-icon">⚙️</span>
+                        <span>Ayarlar</span>
+                    </div>
+                </div> -->
+                <!-- id="collapseMenu" -->
+
+                <!-- <div class="collapse-content">
+
+                    <div class="row mb-1 mt-1" hidden>
+                        <div class="col-9">
+                            <label id="lblShowOnlyTradeables" class="fut-font"></label>
+                        </div>
+                        <div class="col-2 text-center">
+                            <label class="switch">
+                                <input id="sbc_show_only_tradeable" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-1" id="filter_concept">
+                        <div class="col-9">
+                            <label id="lblUseConceptPlayer" class="fut-font"></label>
+                        </div>
+                        <div class="col-2 text-center">
+                            <label id="lblSiwtchUseConceptPlayer" class="switch">
+                                <input id="sbc_use_concept_player" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> 
+                
+                    <div class="row mb-1" id="filter_re_solving_count" hidden>
+                        <div class="col-9" style="padding-top: 7px;"> 
+                            <label id="lblRepeatCount" class="fut-font"></label>
+                        </div>
+                        <div class="col-2 text-center d-flex" style="justify-content: flex-end;">
+                            <span class="opacity-50" style="margin-right: 10px;" id="spanCurrentSolvingCount"></span>
+                            <input id="inputReSolveCount" value="1" type="text" class="customInput" style="width:40px;text-align:center;margin-top: 0px ! IMPORTANT;" placeholder="-">
+                        </div>
+                    </div>
+                
+                    <div class="row mb-1" id="filter_dont_buy_players" hidden>
+                        <div class="col-9" style="padding-top: 7px;"> 
+                            <label id="lblDontBuyPlayers" class="fut-font"></label>
+                        </div>
+                        <div class="col-2 text-center d-flex">
+                            <label class="switch">
+                                <input id="inputDontBuyPlayers" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-1">
+                        <div class="col-9">
+                            <label id="lblSubmitSquat" class="fut-font"></label>
+                        </div>
+                        <div class="col-2 text-center">
+                            <label id="lblSwitchSendSquat" class="switch">
+                                <input id="sbc_send_squat" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-1">
+                        <div class="col-9 d-flex">
+                            <label id="lblSbcOpenPacksFast" class="fut-font"></label>
+                            <label id="lblSbcOpenPacksFastDesc" class="px-2 fut-font opacity-50"></label>
+                        </div>
+                        <div class="col-2 text-center">
+                            <label id="lblSwitchSbcOpenPacksFast" class="switch">
+                                <input id="sbc_send_squat" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-9 d-flex">
+                            <label id="lblSbcOpenPacks" class="fut-font"></label>
+                            <label id="lblSbcOpenPacksDesc" class="px-2 fut-font opacity-50"></label>
+                        </div>
+                        <div class="col-2 text-center">
+                            <label class="switch">
+                                <input id="sbc_open_packs" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div> -->
+
+
+                <!-- <div id="header-notify-telegram" class="row header-notify-telegram p-2" hidden>
+                    <div class="col-48 text-center">
+                        
+                        <a href="https://t.me/sbcsolverappnotify" class="notify-telegram blink d-flex" target="_blank">
+                            <span id="span_join_telegram" class="fut-font"> </span>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"  height="28" />
+                        </a>
+                    </div>
+                </div> -->
+
+                <div class="sbcOptions">
+                    <table class="layout-table" style="width:100%; border-collapse:collapse;" border="0">
+                        <tbody>
+
+                            <tr id="filter_concept">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblUseConceptPlayer" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_use_concept_player" name="sbc_use_concept_player" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+
+                            <tr id="filter_re_solving_count">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblRepeatCount" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;">
+                                        <span class="opacity-50" id="spanCurrentSolvingCount"></span>
+                                        <input id="inputReSolveCount" name="inputReSolveCount" value="1" type="text" class="customInput" style="width:50px;text-align:center;">
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
+                            <!-- <tr id="filter_dont_buy_players" hidden>
+                            <td style="vertical-align:middle;">
+                                <label id="lblDontBuyPlayers" class="fut-font"></label>
+                            </td>
+                            <td style="vertical-align:middle; text-align:right;">
+                                <input id="inputDontBuyPlayers" class="sbcOption form-check-input" type="checkbox">
+                            </td>
+                        </tr> -->
+
+
+
+
+                            <tr id="filter_buy_only_concept_players" hidden>
+                                <td style="vertical-align:middle;">
+                                    <label id="lblBuyOnlyConceptPlayers" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_buy_only_concept_players" name="sbc_buy_only_concept_players" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+
+
+
+                            <tr id="filter_allow_buy_players">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblAllowBuyPlayers" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_allow_buy_players" name="sbc_allow_buy_players" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+
+
+
+
+                            <tr id="filter_allow_club_players">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblAllowClubPlayers" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_allow_club_players" name="sbc_allow_club_players" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+                            <tr id="filter_send_squad">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblSubmitSquat" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_send_squat" name="sbc_send_squat" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+
+                            <tr style="height: 10px;" class="opacity-50">
+                                <td colspan="2">
+                                    <hr>
+                                </td>
+                            </tr>
+
+
+                            <tr id="filter_open_packs_fast">
+                                <td style="vertical-align:middle;">
+                                    <div class="d-flex">
+                                        <label id="lblSbcOpenPacksFast" class="fut-font"></label>
+                                        <label id="lblSbcOpenPacksFastDesc" class="fut-font opacity-50 ml-2"></label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_open_packs_fast" name="sbc_open_packs_fast" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+
+                            <tr id="filter_open_packs">
+                                <td style="vertical-align:middle;">
+                                    <div class="d-flex">
+                                        <label id="lblSbcOpenPacks" class="fut-font"></label>
+                                        <label id="lblSbcOpenPacksDesc" class="fut-font opacity-50 ml-2"></label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_open_packs" name="sbc_open_packs" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+                            <tr style="height: 10px;" class="opacity-50">
+                                <td colspan="2">
+                                    <hr>
+                                </td>
+                            </tr>
+
+
+
+                            <tr id="filter_show_only_tradeables">
+                                <td style="vertical-align:middle;">
+                                    <label id="lblShowOnlyTradeables" class="fut-font"></label>
+                                </td>
+                                <td style="vertical-align:middle; text-align:right;">
+                                    <input id="sbc_show_only_tradeable" name="sbc_show_only_tradeable" class="sbcOption form-check-input" type="checkbox">
+                                </td>
+                            </tr>
+                            <tr style="height: 10px;" class="opacity-50">
+                                <td colspan="2">
+                                    <hr>
+                                </td>
+                            </tr>
+
+
+                            <!-- <tr id="filter_show_only_my_startup_sbcs">
+                            <td style="vertical-align:middle;">
+                                <label id="lblShowOnlyMyStartupSBCs" class="fut-font"></label>
+                            </td>
+                            <td style="vertical-align:middle; text-align:right;">
+                                <input id="sbc_show_only_my_startup_sbcs" name="sbc_show_only_my_startup_sbcs" class="sbcOption form-check-input" type="checkbox">
+                            </td>
+                        </tr> -->
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row" hidden>
+                    <div class="col-40">
+                        <label class="fut-font" id="use_futbin_link">  </label>
+                    </div>
+                    <div class="col-8 text-center">
+                        <label class="switch">
+                            <input id="inputUseFutbinLink" class="sbcOption" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="col-48" id="sbc_filter_futbin_link_input">
+                        <input id="inputSbcOptionFutbinAddress" type="text" class="customInput" placeholder="Futwiz Address">
+                    </div>
+                    <div class="col-48">
+                        <hr class="opacity-50" id="futbinhr">
+                    </div>
+
+                </div>
+
+                <!-- <div id="filter_use_my_squats">
+                    <div class="row mb-1">
+                        <div class="col-40">
+                            <label id="lblUseMySquats" class="fut-font"></label>
+                        </div>
+                        <div class="col-8 text-center">
+                            <label class="switch">
+                                <input id="inputUseMySquats" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div> 
+                        <div class="col-48">
+                            <hr class="opacity-50" >
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <!-- <div id="sbcFilterSearchClub"> -->
+                <!-- <div class="row mb-2" >
+                        <div class="col-40">
+                            <label id="lblSearchClubPlayer" class="fut-font"></label>
+                            <div class="blink_me" hidden><span id="spanNew1"></span></div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <label id="lblSwitchDontSearchClubPlayer" class="switch">
+                                <input id="inputSearchClubPlayer" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> -->
+                <!-- <hr class="opacity-50" >
+                    <div class="row">
+                        <div class="col-40">
+                            <label id="lblUseActiveSquatPlayers" class="fut-font px-2"></label>
+                        </div>
+                        <div class="col-8 text-center">
+                            <label id="lblSwitchUseActiveSquatPlayers" class="switch">
+                                <input id="inputUseActiveSquadPlayers" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <hr class="opacity-50" >
+
+                    <div class="row mb-2">
+                        <div class="col-40">
+                            <label id="lblSbcUseTradeables" class="fut-font px-2"></label>
+                            <div class="blink_me" hidden><span id="spanNew1"></span></div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <label id="lblSwitchSbcUseTradeables" class="switch">
+                                <input id="inputSbcUseTradeables" class="sbcOption" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <hr class="opacity-50" > -->
+
+                <!-- </div> -->
+
+
+
+
+
+
+                <div class="row mb-1" hidden>
+                    <div class="col-40">
+                        <label id="lblUseTMarketScreen" class="fut-font"></label>
+                    </div>
+                    <div class="col-8 text-center">
+                        <label class="switch">
+                            <input id="inputSbcUseTMarketScreen" class="sbcOption" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="col-48">
+                        <hr class="opacity-50">
+                    </div>
+                </div>
+
+                <!-- <div id="divFutbinAddress" class="input-futbin-box hidden">
+                    <input id="inputSbcOptionFutbinAddress" type="text" class="customInput" placeholder="Futbin Address">
+                </div> -->
+            </div>
+
+            <div id="divSbcCategoryAndItems" class="content_box no-padding mt-2">
+
+                <div id="sbcCategories">
+
+                </div>
+
+                <div class="search-div d-flex">
+                    <input id="search_input" class="customInput w-100">
+                    <div id="clearSearchInput" class="customInput">
+                        <div class="input-icon">
+                            <i class="fa-solid fa-eraser"></i>
+                        </div>
+                    </div>
+
+                    <div id="onlyTradeableDiv" class="customInput" style="padding: 0px !important;">
+                        <!-- <div class="input-icon text-center" style="padding: 9px 0px 0px 0px;">
+                            
+                        </div>   -->
+                        <!-- <button id="sbc_filter_only_tradeables" class="sbc-filter ea-filter-bar-item-view" style="padding: 6px ! IMPORTANT;
+            width: 40px;"> 
+                            <img src="https://www.ea.com/ea-sports-fc/ultimate-team/web-app/images/coinIcon.png" style="height: 17px;margin-top: 2px;">
+                        </button> -->
+                    </div>
+                </div>
+                <div id="sbcSubCategories"></div>
+            </div>
+
+            <div id="sbcLogData" class="mt-4" hidden>
+                <table id="sbcmessageTable" border="1" style="width: 100%; border-collapse: collapse;">
+                    <!-- <thead>
+                        <tr>
+                            <th class="text-center">
+                                <span id="sbc_player_log_source"></span>
+                            </th>
+                            <th class="text-center">
+                                <span id="sbc_player_log_rating"></span>
+                            </th>
+                            <th class="text-center">
+                                <span id="sbc_player_log_quality"></span>
+                            </th>
+                            <th class="text-center">
+                                <span id="sbc_player_log_rarity"></span>
+                            </th>
+                            <th class="text-center">
+                                <span id="sbc_player_log_name"></span>
+                            </th>
+                        </tr>
+                    </thead> -->
+                    <tbody>
+                        <!-- Satırlar buraya eklenecek -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

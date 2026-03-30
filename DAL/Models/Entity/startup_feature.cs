@@ -23,7 +23,5 @@ public partial class startup_feature
 
     public string? name_tr { get; set; }
 
-    public virtual ICollection<startup_feature_lang> startup_feature_lang { get; set; } = new List<startup_feature_lang>();
-
     public virtual ICollection<user_startup> user_startup { get; set; } = new List<user_startup>();
 }

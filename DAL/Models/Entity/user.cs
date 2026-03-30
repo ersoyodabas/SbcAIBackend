@@ -23,17 +23,11 @@ public partial class user
 
     public string? role { get; set; }
 
-    public string? membership_type { get; set; }
+    public string? subscription_type { get; set; }
 
-    public string? email_code { get; set; }
+    public DateTime? subscription_start_date { get; set; }
 
-    public DateTime email_code_sent_date { get; set; }
-
-    public DateTime? activated_date { get; set; }
-
-    public DateTime? membership_start_date { get; set; }
-
-    public DateTime? membership_end_date { get; set; }
+    public DateTime? subscription_end_date { get; set; }
 
     public bool? active { get; set; }
 
@@ -67,27 +61,7 @@ public partial class user
 
     public int? reseller_id { get; set; }
 
-    public string? social_facebook { get; set; }
-
-    public string? social_instagram { get; set; }
-
-    public string? social_telegram { get; set; }
-
-    public string? social_discord { get; set; }
-
-    public string? social_whatsapp { get; set; }
-
-    public string? website_link { get; set; }
-
-    public string? social_youtube { get; set; }
-
-    public string? social_twitter { get; set; }
-
-    public string? social_logo { get; set; }
-
     public bool? contact_buy_coins { get; set; }
-
-    public bool? wp_join_result { get; set; }
 
     /// <summary>
     /// pending
@@ -109,13 +83,7 @@ public partial class user
 
     public bool? contact_mail_price_change { get; set; }
 
-    public bool? auto_login { get; set; }
-
     public short login_limit { get; set; }
-
-    public short? ip_limit { get; set; }
-
-    public short? account_limit { get; set; }
 
     public string? version { get; set; }
 
@@ -126,8 +94,6 @@ public partial class user
     public string? crypt_sender_address { get; set; }
 
     public bool? coin_buyer { get; set; }
-
-    public string? username { get; set; }
 
     public string? register_source { get; set; }
 

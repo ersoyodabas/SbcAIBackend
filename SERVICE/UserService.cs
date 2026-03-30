@@ -1,6 +1,8 @@
+using System.Collections;
 using Sbc.DAL.Models.Entity;
 using Sbc.DAL.Repositories;
 using Sbc.DTO;
+using Sbc.DTO.LoginPanel;
 
 namespace Sbc.SERVICE
 {
@@ -103,6 +105,54 @@ namespace Sbc.SERVICE
                     result = true,
                     message = "Kullanıcı getirildi.",
                     data = dto
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReturnObject
+                {
+                    result = false,
+                    message = $"Hata: {ex.Message}",
+                    data = null
+                };
+            }
+        }
+
+        public async Task<ReturnObject> GetUserForLoginPanelAsync(string email)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    return new ReturnObject
+                    {
+                        result = false,
+                        message = "Email gereklidir.",
+                        data = null
+                    };
+                }
+
+                var (user, userStartups) = await _userRepository.GetUserForLoginPanelDtoAsync(email);
+                
+                if (user == null)
+                {
+                    return new ReturnObject
+                    {
+                        result = false,
+                        message = "Kullanıcı bulunamadı.",
+                        data = null
+                    };
+                }
+
+                return new ReturnObject
+                {
+                    result = true,
+                    message = "Kullanıcı (startup verileri ile) getirildi.",
+                    data = new LoginPanelResponseDto
+                    {
+                        user = user,
+                        userStartups = userStartups
+                    }
                 };
             }
             catch (Exception ex)

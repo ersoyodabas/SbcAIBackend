@@ -23,8 +23,6 @@ public partial class league
 
     public virtual ICollection<club> club { get; set; } = new List<club>();
 
-    public virtual ICollection<league_lang> league_lang { get; set; } = new List<league_lang>();
-
     public virtual ICollection<player> player { get; set; } = new List<player>();
 
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();

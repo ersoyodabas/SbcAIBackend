@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rule Model Editor (Unified)</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #f0f0f0; }
+    .row-inputs { display: flex; gap: 5px; margin-bottom: 5px; align-items: center; flex-wrap: wrap; }
+    .add-btn, .remove-btn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .add-btn::before { content: '+'; color: green; font-weight: bold; }
+    .remove-btn::before { content: '×'; color: red; font-weight: bold; }
+    .tab-group { display: flex; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
+    .tab { padding: 4px 10px; cursor: pointer; border-right: 1px solid #ccc; }
+    .tab.active { background: #007bff; color: white; font-weight: bold; }
+    .hidden { display: none; }
+    textarea { width: 100%; height: 200px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+<h1>Rule Model Editor</h1>
+
+<table>
+  <thead>
+    <tr><th>Filter Type</th><th>Inputs</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Quality <button class="add-btn" data-type="quality" type="button"></button></td><td><div id="quality"></div></td></tr>
+    <tr><td>Rarity <button class="add-btn" data-type="rarity" type="button"></button></td><td><div id="rarity"></div></td></tr>
+    <tr><td>Rating <button class="add-btn" data-type="rating" type="button"></button></td><td><div id="rating"></div></td></tr>
+    <tr><td>League <button class="add-btn" data-type="league" type="button"></button></td><td><div id="league"></div></td></tr>
+    <tr><td>Nation <button class="add-btn" data-type="nation" type="button"></button></td><td><div id="nation"></div></td></tr>
+    <tr><td>Club <button class="add-btn" data-type="club" type="button"></button></td><td><div id="club"></div></td></tr>
+    <tr><td>Squad</td><td><div class="row-inputs">
+      <input id="squad-size" type="number" placeholder="Size">
+      <input id="squad-chemistry" type="number" placeholder="Chemistry">
+    </div></td></tr>
+  </tbody>
+</table>
+
+<textarea id="output"></textarea>
+
+<script>
+let rule_model = {
+  quality: [],
+  rarity: [],
+  rating: [],
+  league: [],
+  nation: [],
+  club: [],
+  squad: { size: null, chemistry: null }
+};
+
+function updateOutput() {
+  document.getElementById("output").value = JSON.stringify(rule_model, null, 2);
+}
+
+function createInputRowSimple(type) {
+  const row = document.createElement("div");
+  row.className = "row-inputs";
+
+  let belong = null;
+  if (['quality', 'rarity', 'rating'].includes(type)) {
+    const tabGroup = document.createElement("div");
+    tabGroup.className = "tab-group";
+    const playerTab = document.createElement("div");
+    playerTab.className = "tab active";
+    playerTab.textContent = "Player";
+    const squadTab = document.createElement("div");
+    squadTab.className = "tab";
+    squadTab.textContent = "Squad";
+
+    tabGroup.appendChild(playerTab);
+    tabGroup.appendChild(squadTab);
+    row.appendChild(tabGroup);
+
+    belong = "player";
+    playerTab.addEventListener("click", () => {
+      playerTab.classList.add("active");
+      squadTab.classList.remove("active");
+      belong = "player";
+      updateModel();
+    });
+    squadTab.addEventListener("click", () => {
+      squadTab.classList.add("active");
+      playerTab.classList.remove("active");
+      belong = "squad";
+      updateModel();
+    });
+  }
+
+  const select = document.createElement("select");
+  select.className = "count_type";
+  select.innerHTML = `<option value="">-</option><option value="min">min</option><option value="max">max</option><option value="exact">exact</option>`;
+
+  const count = document.createElement("input");
+  count.type = "number";
+  count.className = "count";
+  count.placeholder = "Count";
+
+  let value;
+  if (type === 'rating') {
+    value = document.createElement("input");
+    value.type = "number";
+    value.placeholder = "Value";
+    value.className = "value";
+  } else {
+    value = document.createElement("select");
+    value.className = "value";
+    if (type === 'quality') {
+      value.innerHTML = `<option value="">-</option><option value="Bronze">Bronze</option><option value="Silver">Silver</option><option value="Gold">Gold</option>`;
+    } else if (type === 'rarity') {
+      value.innerHTML = `<option value="">-</option><option value="Common">Common</option><option value="Rare">Rare</option>`;
+    } else if (type === 'league') {
+      value.innerHTML = `<option value="">-</option><option value="Premier League">Premier League</option>`;
+    } else if (type === 'nation') {
+      value.innerHTML = `<option value="">-</option><option value="Turkey">Turkey</option>`;
+    } else if (type === 'club') {
+      value.innerHTML = `<option value="">-</option><option value="Galatasaray">Galatasaray</option>`;
+    }
+  }
+
+  const removeBtn = document.createElement("button");
+  removeBtn.className = "remove-btn";
+  removeBtn.type = "button";
+  removeBtn.addEventListener("click", () => {
+    row.remove();
+    updateModel();
+  });
+
+  [select, count, value].forEach(input => {
+    input.addEventListener("input", updateModel);
+    input.addEventListener("change", updateModel);
+  });
+
+  row.appendChild(select);
+  row.appendChild(count);
+  row.appendChild(value);
+  row.appendChild(removeBtn);
+
+  row.getData = () => {
+    return {
+      ...(belong && { belong }),
+      count_type: select.value || null,
+      count: count.value ? parseInt(count.value) : null,
+      value: value.value || null
+    };
+  };
+
+  return row;
+}
+
+function updateModel() {
+  rule_model.quality = [...document.querySelectorAll("#quality .row-inputs")].map(r => r.getData()).filter(Boolean);
+  rule_model.rarity = [...document.querySelectorAll("#rarity .row-inputs")].map(r => r.getData()).filter(Boolean);
+  rule_model.rating = [...document.querySelectorAll("#rating .row-inputs")].map(r => r.getData()).filter(Boolean);
+  rule_model.league = [...document.querySelectorAll("#league .row-inputs")].map(r => r.getData()).filter(Boolean);
+  rule_model.nation = [...document.querySelectorAll("#nation .row-inputs")].map(r => r.getData()).filter(Boolean);
+  rule_model.club = [...document.querySelectorAll("#club .row-inputs")].map(r => r.getData()).filter(Boolean);
+  updateOutput();
+}
+
+function init() {
+  document.querySelectorAll(".add-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const type = btn.dataset.type;
+      const container = document.getElementById(type);
+      const row = createInputRowSimple(type);
+      container.appendChild(row);
+      updateModel();
+    });
+  });
+
+  document.getElementById("squad-size").addEventListener("input", e => {
+    rule_model.squad.size = parseInt(e.target.value) || null;
+    updateOutput();
+  });
+  document.getElementById("squad-chemistry").addEventListener("input", e => {
+    rule_model.squad.chemistry = parseInt(e.target.value) || null;
+    updateOutput();
+  });
+
+  updateOutput();
+}
+
+window.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

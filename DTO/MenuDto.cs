@@ -11,11 +11,17 @@ namespace Sbc.DTO
 
         public string name { get; set; } = null!;
 
+        public string? code { get; set; }
+
+        public string? name_en { get; set; }
+
+        public string? name_tr { get; set; }
+
         public int sort_number { get; set; }
 
         public bool only_admin { get; set; }
 
-        public bool is_active { get; set; }
+        public bool active { get; set; }
 
         public bool show { get; set; }
 

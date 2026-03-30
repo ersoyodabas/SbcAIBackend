@@ -49,7 +49,6 @@ public class AuthController : ControllerBase
                 name = string.IsNullOrWhiteSpace(payload.Name) ? normalizedEmail.Split('@')[0] : payload.Name.Trim(),
                 email = normalizedEmail,
                 password = Convert.ToHexString(RandomNumberGenerator.GetBytes(32)),
-                email_code_sent_date = DateTime.UtcNow,
                 max_login_limit = 10,
                 banned = false,
                 create_date = DateTime.UtcNow,
@@ -59,7 +58,6 @@ public class AuthController : ControllerBase
                 expire_mail_sent = false,
                 login_limit = 1,
                 active = true,
-                username = normalizedEmail.Split('@')[0],
                 register_source = "google_oauth",
                 last_login_date_app = DateTime.UtcNow,
                 last_active_date_app = DateTime.UtcNow,
@@ -103,9 +101,8 @@ public class AuthController : ControllerBase
                 id = existingUser.id,
                 name = existingUser.name,
                 email = existingUser.email,
-                username = existingUser.username,
                 role = existingUser.role,
-                membershipType = existingUser.membership_type,
+                subscriptionType = existingUser.subscription_type,
                 active = existingUser.active,
                 registerSource = existingUser.register_source
             }

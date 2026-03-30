@@ -21,11 +21,7 @@ public partial class _DbContext : DbContext
 
     public virtual DbSet<chemistry> chemistry { get; set; }
 
-    public virtual DbSet<chemistry_lang> chemistry_lang { get; set; }
-
     public virtual DbSet<club> club { get; set; }
-
-    public virtual DbSet<club_lang> club_lang { get; set; }
 
     public virtual DbSet<coin_card> coin_card { get; set; }
 
@@ -41,8 +37,6 @@ public partial class _DbContext : DbContext
 
     public virtual DbSet<league> league { get; set; }
 
-    public virtual DbSet<league_lang> league_lang { get; set; }
-
     public virtual DbSet<log_request> log_request { get; set; }
 
     public virtual DbSet<mail> mail { get; set; }
@@ -50,8 +44,6 @@ public partial class _DbContext : DbContext
     public virtual DbSet<menu> menu { get; set; }
 
     public virtual DbSet<nation> nation { get; set; }
-
-    public virtual DbSet<nation_lang> nation_lang { get; set; }
 
     public virtual DbSet<pack> pack { get; set; }
 
@@ -63,29 +55,17 @@ public partial class _DbContext : DbContext
 
     public virtual DbSet<position> position { get; set; }
 
-    public virtual DbSet<position_lang> position_lang { get; set; }
-
     public virtual DbSet<quality> quality { get; set; }
 
-    public virtual DbSet<quality_lang> quality_lang { get; set; }
-
     public virtual DbSet<rarity> rarity { get; set; }
-
-    public virtual DbSet<rarity_lang> rarity_lang { get; set; }
 
     public virtual DbSet<sbc> sbc { get; set; }
 
     public virtual DbSet<sbc_category> sbc_category { get; set; }
 
-    public virtual DbSet<sbc_category_lang> sbc_category_lang { get; set; }
-
-    public virtual DbSet<sbc_lang> sbc_lang { get; set; }
-
     public virtual DbSet<sbc_player> sbc_player { get; set; }
 
     public virtual DbSet<startup_feature> startup_feature { get; set; }
-
-    public virtual DbSet<startup_feature_lang> startup_feature_lang { get; set; }
 
     public virtual DbSet<subscription> subscription { get; set; }
 
@@ -115,7 +95,7 @@ public partial class _DbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=94.73.146.3;Database=u2211892_sbcmons;User Id=u2211892_sbcmons;Password=z:S5-5_SF_iRig85;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=94.73.145.8;Database=u2211892_sbcai;User Id=u2211892_sbcai;Password=4unYm_o.FS2Q25::;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -139,7 +119,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<card_default>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__card_def__3213E83F2D6C4A5B");
+            entity.HasKey(e => e.id).HasName("PK__card_def__3213E83F52ACA40B");
 
             entity.HasOne(d => d.quality).WithMany(p => p.card_default)
                 .HasForeignKey(d => d.quality_id)
@@ -163,24 +143,6 @@ public partial class _DbContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<chemistry_lang>(entity =>
-        {
-            entity.HasIndex(e => e.chemistry_id, "IX_chemistry_lang_chemistry_id");
-
-            entity.HasIndex(e => e.lang, "IX_chemistry_lang_lang");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(50);
-
-            entity.HasOne(d => d.chemistry).WithMany(p => p.chemistry_lang)
-                .HasForeignKey(d => d.chemistry_id)
-                .HasConstraintName("FK_chemistry_lang_chemistry");
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.chemistry_lang)
-                .HasForeignKey(d => d.lang)
-                .HasConstraintName("FK_chemistry_lang_language");
-        });
-
         modelBuilder.Entity<club>(entity =>
         {
             entity.HasIndex(e => e.league_id, "IX_club_league_id");
@@ -200,29 +162,9 @@ public partial class _DbContext : DbContext
                 .HasConstraintName("FK_league_club");
         });
 
-        modelBuilder.Entity<club_lang>(entity =>
-        {
-            entity.HasIndex(e => e.club_id, "IX_club_lang_club_id");
-
-            entity.HasIndex(e => e.lang, "IX_club_lang_lang");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(100);
-
-            entity.HasOne(d => d.club).WithMany(p => p.club_lang)
-                .HasForeignKey(d => d.club_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_club_lang_club_id");
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.club_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_club_lang_language");
-        });
-
         modelBuilder.Entity<coin_card>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__coin_car__3213E83FFF1C7556");
+            entity.HasKey(e => e.id).HasName("PK__coin_car__3213E83F61EA44FC");
 
             entity.HasIndex(e => e.url, "UQ_coin_card_url").IsUnique();
 
@@ -258,7 +200,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<feature>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__feature__3213E83FE2270EBC");
+            entity.HasKey(e => e.id).HasName("PK__feature__3213E83FBCC089C9");
 
             entity.Property(e => e.active).HasDefaultValue(true);
             entity.Property(e => e.code).HasMaxLength(50);
@@ -307,26 +249,6 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.name_tr).HasMaxLength(100);
         });
 
-        modelBuilder.Entity<league_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_league_lang_lang");
-
-            entity.HasIndex(e => e.league_id, "IX_league_lang_league_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(100);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.league_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_league_lang_league_lang");
-
-            entity.HasOne(d => d.league).WithMany(p => p.league_lang)
-                .HasForeignKey(d => d.league_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_league_lang_league");
-        });
-
         modelBuilder.Entity<log_request>(entity =>
         {
             entity.Property(e => e.create_time)
@@ -340,7 +262,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<mail>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__mail__3213E83F30F51510");
+            entity.HasKey(e => e.id).HasName("PK__mail__3213E83F202CE1C7");
 
             entity.Property(e => e.body).HasColumnType("ntext");
             entity.Property(e => e.description).HasMaxLength(100);
@@ -355,10 +277,12 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<menu>(entity =>
         {
+            entity.Property(e => e.active).HasDefaultValue(true);
+            entity.Property(e => e.code).HasMaxLength(20);
             entity.Property(e => e.href).HasMaxLength(500);
             entity.Property(e => e.img).HasMaxLength(300);
-            entity.Property(e => e.is_active).HasDefaultValue(true);
-            entity.Property(e => e.name).HasMaxLength(500);
+            entity.Property(e => e.name_en).HasMaxLength(100);
+            entity.Property(e => e.name_tr).HasMaxLength(100);
             entity.Property(e => e.show).HasDefaultValue(true);
             entity.Property(e => e.type).HasMaxLength(20);
         });
@@ -380,36 +304,9 @@ public partial class _DbContext : DbContext
                 .HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<nation_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_nation_lang_lang");
-
-            entity.HasIndex(e => e.nation_id, "IX_nation_lang_nation_id");
-
-            entity.Property(e => e.create_date)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.manager_lang_code).HasMaxLength(5);
-            entity.Property(e => e.name).HasMaxLength(200);
-            entity.Property(e => e.update_date)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.nation_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_nation_lang_nation_lang");
-
-            entity.HasOne(d => d.nation).WithMany(p => p.nation_lang)
-                .HasForeignKey(d => d.nation_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_nation_lang_nation");
-        });
-
         modelBuilder.Entity<pack>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__pack__3213E83FC4ED52E4");
+            entity.HasKey(e => e.id).HasName("PK__pack__3213E83FE0C3840F");
 
             entity.Property(e => e.code).HasMaxLength(100);
             entity.Property(e => e.coin).HasMaxLength(100);
@@ -423,7 +320,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<pack_category>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__pack_cat__3213E83FCD477857");
+            entity.HasKey(e => e.id).HasName("PK__pack_cat__3213E83FF4C1F22B");
 
             entity.Property(e => e.active).HasDefaultValue(true);
             entity.Property(e => e.langs).HasMaxLength(500);
@@ -431,7 +328,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<plan>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__plan__3213E83F22DE6E02");
+            entity.HasKey(e => e.id).HasName("PK__plan__3213E83F58CF800B");
 
             entity.Property(e => e.code).HasMaxLength(100);
             entity.Property(e => e.create_date)
@@ -514,25 +411,6 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.name_tr).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<position_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_position_lang_lang");
-
-            entity.HasIndex(e => e.position_id, "IX_position_lang_position_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(100);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.position_lang)
-                .HasForeignKey(d => d.lang)
-                .HasConstraintName("FK_position_lang_language");
-
-            entity.HasOne(d => d.position).WithMany(p => p.position_lang)
-                .HasForeignKey(d => d.position_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_position_lang_position");
-        });
-
         modelBuilder.Entity<quality>(entity =>
         {
             entity.Property(e => e.active).HasDefaultValue(true);
@@ -543,26 +421,6 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.icon_url).HasMaxLength(500);
             entity.Property(e => e.name_en).HasMaxLength(100);
             entity.Property(e => e.name_tr).HasMaxLength(100);
-        });
-
-        modelBuilder.Entity<quality_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_quality_lang_lang");
-
-            entity.HasIndex(e => e.quality_id, "IX_quality_lang_quality_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(500);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.quality_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_quality_lang_language");
-
-            entity.HasOne(d => d.quality).WithMany(p => p.quality_lang)
-                .HasForeignKey(d => d.quality_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_quality_lang_quality_id");
         });
 
         modelBuilder.Entity<rarity>(entity =>
@@ -588,30 +446,8 @@ public partial class _DbContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<rarity_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_rarity_lang_lang");
-
-            entity.HasIndex(e => e.rarity_id, "IX_rarity_lang_rarity_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(500);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.rarity_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_rarity_lang_language");
-
-            entity.HasOne(d => d.rarity).WithMany(p => p.rarity_lang)
-                .HasForeignKey(d => d.rarity_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_rarity_lang_rarity_id");
-        });
-
         modelBuilder.Entity<sbc>(entity =>
         {
-            entity.ToTable(tb => tb.HasTrigger("trg_PreventDeleteFoundations"));
-
             entity.HasIndex(e => e.category_id, "IX_sbc_category_id");
 
             entity.Property(e => e.active).HasDefaultValue(false);
@@ -651,46 +487,6 @@ public partial class _DbContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.name_en).HasMaxLength(100);
             entity.Property(e => e.name_tr).HasMaxLength(100);
-        });
-
-        modelBuilder.Entity<sbc_category_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_sbc_category_lang_lang");
-
-            entity.HasIndex(e => e.sbc_category_id, "IX_sbc_category_lang_sbc_category_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(500);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.sbc_category_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_sbc_category_lang_language");
-
-            entity.HasOne(d => d.sbc_category).WithMany(p => p.sbc_category_lang)
-                .HasForeignKey(d => d.sbc_category_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_sbc_category_lang_sbc_lang1");
-        });
-
-        modelBuilder.Entity<sbc_lang>(entity =>
-        {
-            entity.HasIndex(e => e.lang, "IX_sbc_lang_lang");
-
-            entity.HasIndex(e => e.sbc_id, "IX_sbc_lang_sbc_id");
-
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.reward_name).HasMaxLength(500);
-            entity.Property(e => e.sbc_name).HasMaxLength(500);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.sbc_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_sbc_lang_language");
-
-            entity.HasOne(d => d.sbc).WithMany(p => p.sbc_lang)
-                .HasForeignKey(d => d.sbc_id)
-                .HasConstraintName("FK_sbc_lang_sbc");
         });
 
         modelBuilder.Entity<sbc_player>(entity =>
@@ -772,22 +568,6 @@ public partial class _DbContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.value2).HasMaxLength(20);
-        });
-
-        modelBuilder.Entity<startup_feature_lang>(entity =>
-        {
-            entity.Property(e => e.lang).HasMaxLength(3);
-            entity.Property(e => e.name).HasMaxLength(50);
-
-            entity.HasOne(d => d.langNavigation).WithMany(p => p.startup_feature_lang)
-                .HasForeignKey(d => d.lang)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_startup_feature_lang_language");
-
-            entity.HasOne(d => d.startup_feature).WithMany(p => p.startup_feature_lang)
-                .HasForeignKey(d => d.startup_feature_id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_startup_feature_lang_startup_feature");
         });
 
         modelBuilder.Entity<subscription>(entity =>
@@ -947,17 +727,12 @@ public partial class _DbContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.email).HasMaxLength(100);
-            entity.Property(e => e.email_code).HasMaxLength(4);
-            entity.Property(e => e.email_code_sent_date).HasDefaultValueSql("(getdate())");
             entity.Property(e => e.lang_app)
                 .HasMaxLength(5)
                 .HasDefaultValue("en");
             entity.Property(e => e.last_used_ip).HasMaxLength(500);
             entity.Property(e => e.login_limit).HasDefaultValue((short)10);
             entity.Property(e => e.max_login_limit).HasDefaultValue(1);
-            entity.Property(e => e.membership_type)
-                .HasMaxLength(10)
-                .HasDefaultValue("gold");
             entity.Property(e => e.name).HasMaxLength(100);
             entity.Property(e => e.note).HasMaxLength(200);
             entity.Property(e => e.password).HasMaxLength(100);
@@ -969,28 +744,9 @@ public partial class _DbContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.role).HasMaxLength(50);
-            entity.Property(e => e.social_discord)
-                .HasMaxLength(500)
-                .IsUnicode(false);
-            entity.Property(e => e.social_facebook)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.social_instagram)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.social_logo).HasMaxLength(500);
-            entity.Property(e => e.social_telegram)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.social_twitter)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.social_whatsapp)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.social_youtube)
-                .HasMaxLength(100)
-                .IsUnicode(false);
+            entity.Property(e => e.subscription_type)
+                .HasMaxLength(10)
+                .HasDefaultValue("gold");
             entity.Property(e => e.trial_confirm_date).HasColumnType("datetime");
             entity.Property(e => e.trial_requested_date).HasColumnType("datetime");
             entity.Property(e => e.trial_requested_ip_address)
@@ -1000,11 +756,7 @@ public partial class _DbContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasComment("pending\r\nconfirmed");
-            entity.Property(e => e.username).HasMaxLength(100);
             entity.Property(e => e.version).HasMaxLength(10);
-            entity.Property(e => e.website_link)
-                .HasMaxLength(100)
-                .IsUnicode(false);
 
             entity.HasOne(d => d.inviter_user).WithMany(p => p.Inverseinviter_user)
                 .HasForeignKey(d => d.inviter_user_id)
@@ -1080,7 +832,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<user_login_attempt>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__user_log__3213E83F4823FFDA");
+            entity.HasKey(e => e.id).HasName("PK__user_log__3213E83F4194D730");
 
             entity.Property(e => e.create_date).HasColumnType("datetime");
             entity.Property(e => e.ip)
@@ -1129,7 +881,6 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.pack_buy_count).HasDefaultValue(10);
             entity.Property(e => e.pack_open_bronze).HasDefaultValue(true);
             entity.Property(e => e.pack_open_other_types).HasDefaultValue(true);
-            entity.Property(e => e.pack_open_silver).HasDefaultValue(true);
             entity.Property(e => e.pack_open_tradeables).HasDefaultValue(true);
             entity.Property(e => e.pack_open_untradeables).HasDefaultValue(true);
             entity.Property(e => e.pack_run_tmarket).HasDefaultValue(false);
@@ -1178,14 +929,11 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.tmarket_player_pick_option_id)
                 .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.tmarket_qs_active).HasDefaultValue(true);
             entity.Property(e => e.tmarket_qs_chemistry).HasDefaultValue(true);
             entity.Property(e => e.tmarket_qs_direct_tradeable).HasDefaultValue(true);
             entity.Property(e => e.tmarket_qs_if_min_price_list_type).HasMaxLength(10);
-            entity.Property(e => e.tmarket_qs_if_min_price_rating_limit).HasDefaultValue((short)82);
             entity.Property(e => e.tmarket_qs_if_min_price_rating_max).HasDefaultValue((short)82);
             entity.Property(e => e.tmarket_qs_if_min_price_rating_min).HasDefaultValue((short)47);
-            entity.Property(e => e.tmarket_qs_kit).HasDefaultValue(true);
             entity.Property(e => e.tmarket_qs_manager).HasDefaultValue(true);
             entity.Property(e => e.tmarket_relist_price_change).HasDefaultValue((short)-1);
             entity.Property(e => e.tmarket_relist_qs_active).HasDefaultValue(true);
@@ -1201,7 +949,6 @@ public partial class _DbContext : DbContext
             entity.Property(e => e.tmarket_relist_send_to_club_common_player).HasDefaultValue(false);
             entity.Property(e => e.tmarket_relist_send_to_club_if_min_price).HasDefaultValue(false);
             entity.Property(e => e.tmarket_relist_send_to_club_rare_player).HasDefaultValue(false);
-            entity.Property(e => e.tmarket_rerun_min).HasDefaultValue((short)30);
             entity.Property(e => e.tmarket_s2tl).HasDefaultValue(true);
             entity.Property(e => e.tmarket_send_to_club_unsold_min_priced).HasDefaultValue(false);
             entity.Property(e => e.update_time).HasColumnType("datetime");
@@ -1214,7 +961,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<user_sbc>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__user_sbc__3213E83F467A2C2B");
+            entity.HasKey(e => e.id).HasName("PK__user_sbc__3213E83FEF5E2811");
 
             entity.Property(e => e.active_squad).HasDefaultValue(true);
             entity.Property(e => e.create_date)
@@ -1239,7 +986,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<user_sbc_submit>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__user_sbc__3213E83F754E5C39");
+            entity.HasKey(e => e.id).HasName("PK__user_sbc__3213E83F73E43226");
 
             entity.HasIndex(e => new { e.user_id, e.sbc_id }, "IX_UserSbcSubmit_UserID_SBCID");
 
@@ -1264,8 +1011,6 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<user_startup>(entity =>
         {
-            entity.ToTable(tb => tb.HasTrigger("trg_user_startup_value2"));
-
             entity.Property(e => e.create_date)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -1288,7 +1033,7 @@ public partial class _DbContext : DbContext
 
         modelBuilder.Entity<version>(entity =>
         {
-            entity.HasKey(e => e.id).HasName("PK__version__3213E83FF90BACCC");
+            entity.HasKey(e => e.id).HasName("PK__version__3213E83F48A9B4D1");
 
             entity.Property(e => e.create_date)
                 .HasDefaultValueSql("(getdate())")

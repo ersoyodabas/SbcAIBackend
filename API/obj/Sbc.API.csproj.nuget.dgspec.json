@@ -111,7 +111,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/ersoyo/Projects/SbcAI/Backend/DTO/Sbc.DTO.csproj": {
+                "projectPath": "/Users/ersoyo/Projects/SbcAI/Backend/DTO/Sbc.DTO.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -1,0 +1,313 @@
+<div id="modal-membership-expired" class="modal">
+    <div id="membership-modal-content" class="modal-content modal-md" style="width: 650px !important;">
+        <div class="header">
+            <span id="close-modal-membership-expired" class="close" style="font-size: 30px !important;">&times;</span>
+            <p  style="font-size:20px;" id="payment-header"></p><br />
+        </div>
+
+        <div class="body" style="background-color: #343434" hidden>
+
+            <table id="tblMemberships" hidden>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><span id="mTypeFree"></span></th>
+                        <th><span id="mTypeBronze"></span></th>
+                        <th><span id="mTypeSilver"></span></th>
+                        <th><span id="mTypeGold"></span></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment">
+                            <span id="mAutoBid"></span>
+                        </button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mAddToTList"></span></button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mTransferMarket"></span></button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mSnipe"></span></button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mSbcFull"></span></button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mSbcConcept"></span></button>
+                    </th>
+                    <td><i class="fas fa-lock"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+
+
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mSbcFutbin"></span></button>
+                    </th>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mMyClubs"></span></button>
+                    </th>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+                <tr hidden>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mCoinMarket"></span></button>
+                    </th>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                    <td><i class="fas fa-check-circle active-icon"></i></td>
+                </tr>
+
+
+                <tr>
+                    <th class="title">
+                        <button class="menuButton menu-button-payment"><span id="mClubLimit"></span></button>
+                    </th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>-</td>
+                </tr>
+
+
+             
+
+                <tfoot id="tblPricesFooter" hidden>
+
+                    
+
+
+
+                    <!--<tr>
+        <th class="title" colspan="2" ><span id="mOneMonthPrice"></span></th>
+        <td style="text-align: right;"><span id="spanBronzeCurrentMonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanSilverCurrentMonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanGoldCurrentMonthPrice"></span></td>
+    </tr>
+
+    <tr>
+        <th class="title" colspan="2" ><span id="mThreeMonthPrice"></span></th>
+        <td style="text-align: right;"><span id="spanBronzeNext3MonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanSilverNext3MonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanGoldNext3MonthPrice"></span></td>
+    </tr>
+
+
+    <tr>
+        <th class="title" colspan="2" ><span id="mSixMonthPrice"></span></th>
+        <td style="text-align: right;"><span id="spanBronzeNext6MonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanSilverNext6MonthPrice"></span></td>
+        <td style="text-align: right;"><span id="spanGoldNext6MonthPrice"></span></td>
+    </tr>
+
+    <tr>
+        <th class="title" colspan="2"><span id="mSeasonPrice"></span></th>
+        <td style="text-align: right;"><span id="spanBronzeCurrentSeasonPrice"></span></td>
+        <td style="text-align: right;"><span id="spanSilverCurrentSeasonPrice"></span></td>
+        <td style="text-align: right;"><span id="spanGoldCurrentSeasonPrice"></span></td>
+    </tr>-->
+                </tfoot>
+
+
+            </table>
+
+            <table id="tblMembershipModal" hidden>
+                <tbody>
+
+
+                    <tr>
+                        <td style=" padding: 20px 20px 0px 20px;">
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+
+            </table>
+
+            <div id="dis_bolme" hidden>
+
+                <div id="ic_bolme_1" class="ic_bolme">
+
+                    <div class="box">
+                        <table id="tbl-membership-expired">
+                            <tr>
+                                <th class="title"><span id="span-bank"></span></th>
+                                <td class="input">
+                                    <input id="input-bank" type="tel" class="numericInput customInput " />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="title"><span id="span-receiver"></span></th>
+                                <td class="input">
+                                    <input id="input-receiver" type="tel" class="numericInput customInput " />
+                                </td>
+                                <td class="icon"><i id="i-copy-receiver" class="i-copy fas fa-copy"></i></td>
+                            </tr>
+                            <tr>
+                                <th class="title"><span id="span-iban"></span></th>
+                                <td class="input">
+                                    <input id="input-iban" style="width:98% !important;" type="tel" class="numericInput customInput " />
+                                </td>
+                                <td class="icon"><i id="i-copy-iban" class="i-copy fas fa-copy"></i></td>
+                            </tr>
+                            <tr hidden>
+                                <th class="title"><span id="span-paypal"></span></th>
+                                <td class="input">
+                                    <input id="input-paypal" type="tel" class="numericInput customInput" style="text-transform: lowercase;" />
+                                </td>
+                                <td class="icon"><i id="i-copy-paypal" class="i-copy fas fa-copy"></i></td>
+                            </tr>
+
+                            <tr hidden>
+                                <th class="title"><span id="span-monthly-price"></span></th>
+                                <td class="input">
+                                    <input id="input-monthly-price" type="tel" class="numericInput customInput " style="text-transform: lowercase;" />
+                                </td>
+                                <td class="icon"></td>
+                            </tr>
+
+                            <tr hidden>
+                                <th class="title"><span id="span-season-price"></span></th>
+                                <td class="input">
+                                    <input id="input-season-price" type="tel" class="numericInput customInput " style="text-transform: lowercase;" />
+                                </td>
+                                <td class="icon"></td>
+                            </tr>
+
+                            <tr>
+                                <th class="title">
+                                    <span id="span-season-end"></span>
+                                    <!-- <span id="span-season-left-day"></span> -->
+                                </th>
+                                <td class="input">
+                                    <input style="width:49% !important;" id="input-season-end" type="tel" class="numericInput customInput " style="text-transform: lowercase;" />
+                                </td>
+                                <td class="icon"></td>
+                            </tr>
+
+                            <tr>
+                                <th class="title">
+                                    <span id="span-season-left-day"></span></span>
+                                </th>
+                                <td class="input">
+                                    <input style="width:49% !important;" id="input-season-left-day" type="tel" class="numericInput customInput " />
+                                </td>
+                                <td class="icon"></td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <div class="footer" style="text-align:center !important;margin-top:120px;">
+
+                        <span id="payment-anounce" style="    font-size: 20px;"> </span><br><br>
+                        <a href="http://m.me/sbcsolver" target="_blank" class="menuButton menu-button-payment" style="background-color:#385898 !important;width:60%;   display: inline-block;">
+                            <i class="fab fa-facebook"></i>
+                            <span id="span-expired-contact" style="margin-left:20px;margin-right:20px"> </span><i class="fab fa-facebook-messenger"></i>
+                        </a>
+                        <!-- <p style="color: #ffffff3d;font-size: 13px;/* text-align: left; */font-style: italic;"></p> -->
+                    </div>
+
+                </div>
+
+                <div class="ic_bolme">
+                    <div class="box">
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <div id="divStartGoldTrial" class="member-expire-button-div" hidden>
+                <a id="btnStartGoldTrial" type="button" class="member-expire-buttons" href="javascript:void(0);">
+                    <i class="fas fa-running"></i>
+                    <label id="lblStartTrial"></label>
+                </a>
+            </div>
+
+            <div id="divUpgradeMyMembership" class="member-expire-button-div" hidden>
+                <a id="aUpgradeMyMembership" class="member-expire-buttons" href="" target="_blank">
+                    <i class="fas fa-hand-point-right"></i>
+                    <label id="lblUpgradeMyMembership"></label>
+                </a>
+            </div>
+
+            <div id="divUpgradeMyMembershipSupplier"  class="member-expire-button-div" hidden>
+                <a class="member-expire-buttons" href="javascript:void(0);">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <label id="lblContactYourSeller"></label>
+                </a>
+            </div>
+
+
+
+
+        </div>
+
+        </div>
+</div>
+

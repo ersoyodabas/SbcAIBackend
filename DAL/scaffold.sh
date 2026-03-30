@@ -15,6 +15,6 @@ SCAFFOLD_ARGS=(
   -c _DbContext
 )
 
-dotnet ef dbcontext scaffold "Server=94.73.146.3;Database=u2211892_sbcmons;User Id=u2211892_sbcmons;Password=z:S5-5_SF_iRig85;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer "${SCAFFOLD_ARGS[@]}"
+dotnet ef dbcontext scaffold "Server=94.73.145.8;Database=u2211892_sbcai;User Id=u2211892_sbcai;Password=4unYm_o.FS2Q25::;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer "${SCAFFOLD_ARGS[@]}"
 
 echo "✅ Scaffold completed: Models/Entity updated."

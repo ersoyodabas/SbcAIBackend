@@ -61,8 +61,6 @@ public partial class sbc
 
     public virtual sbc_category category { get; set; } = null!;
 
-    public virtual ICollection<sbc_lang> sbc_lang { get; set; } = new List<sbc_lang>();
-
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();
 
     public virtual ICollection<user_sbc> user_sbc { get; set; } = new List<user_sbc>();

@@ -37,7 +37,5 @@ public partial class rarity
 
     public virtual ICollection<player> player { get; set; } = new List<player>();
 
-    public virtual ICollection<rarity_lang> rarity_lang { get; set; } = new List<rarity_lang>();
-
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();
 }

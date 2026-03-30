@@ -23,7 +23,5 @@ public partial class position
 
     public virtual ICollection<player> player { get; set; } = new List<player>();
 
-    public virtual ICollection<position_lang> position_lang { get; set; } = new List<position_lang>();
-
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();
 }

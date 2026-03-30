@@ -22,6 +22,4 @@ public partial class chemistry
     public string? name_en { get; set; }
 
     public bool? important { get; set; }
-
-    public virtual ICollection<chemistry_lang> chemistry_lang { get; set; } = new List<chemistry_lang>();
 }

@@ -1,0 +1,500 @@
+﻿<div id="screentransfermarket" class="menu-box" style="width:380px">
+    <div class="content_box" hidden>
+        <table class="tblTmarket">
+            <tbody>
+                <!-- Kalite Satırı -->
+                <tr>
+                    <th class="br1">
+                        <!-- <span id="tm_quality"></span> -->
+                    </th>
+                    <td class="bg-type1 text-center br1">
+                        <!-- <select id="tmarket_qs_quality_id" name="tmarket_qs_quality_id" class="customInput" style="width: 90px;">
+                        </select> -->
+                    </td>
+                    <td class=" br1 text-center">
+                        <select id="tmarket_s2c_quality_id" name="tmarket_s2c_quality_id" class="customInput" style="width: 90px;"></select>
+                    </td>
+                    <td class="bg-type1 text-center">
+                        <select id="tmarket_s2tl_quality_id" name="tmarket_s2tl_quality_id" class="customInput" style="width: 90px;"></select>
+                    </td>
+                </tr>
+
+                <!-- Nadirlik Satırı -->
+                <tr>
+                    <th class=" br1">
+                        <!-- <span id="tm_rarity">Nadirlik: ✓</span> -->
+                    </th>
+                    <td class="bg-type1 text-center br1">
+                        <!-- <select id="tmarket_qs_rarity_id" name="tmarket_qs_rarity_id" class="customInput" style="width: 90px;"></select> -->
+                    </td>
+                    <td class=" br1 text-center">
+                        <!-- <select id="tmarket_s2c_rarity_id" name="tmarket_s2c_rarity_id" class="customInput" style="width: 90px;"></select> -->
+                    </td>
+                    <td class="bg-type1 text-center">
+                        <select id="tmarket_s2tl_rarity_id" name="tmarket_s2tl_rarity_id" class="customInput" style="width: 90px;"></select>
+                    </td>
+                </tr>
+
+                <!-- Reyting Satırı -->
+                <tr>
+                    <th class="br1"><span id="tm_rating">Reyting: -</span></th>
+                    <td class="br1 text-center bg-type1 ">
+                        <!-- <input id="tmarket_qs_rating_min" name="tmarket_qs_rating_min" class="customInput text-center ratingInput" type="text" placeholder="-" />
+                            <input id="tmarket_qs_rating_max" name="tmarket_qs_rating_max" class="customInput text-center ratingInput ml-1" type="text" placeholder="-" /> -->
+                    </td>
+                    <td class="br1 text-center">
+                        <input id="tmarket_s2c_rating_min" name="tmarket_s2c_rating_min" class="customInput text-center ratingInput" type="text" placeholder="-" />
+                        <input id="tmarket_s2c_rating_max" name="tmarket_s2c_rating_max" class="customInput text-center ratingInput ml-1 ratingInput" type="text" placeholder="-" />
+                    </td>
+                    <td class="bg-type1 text-center">
+                        <input id="tmarket_s2tl_rating_min" name="tmarket_s2tl_rating_min" class="customInput text-center ratingInput" type="text" placeholder="-" />
+                        <input id="tmarket_s2tl_rating_max" name="tmarket_s2tl_rating_max" class="customInput text-center ratingInput ml-1" type="text" placeholder="-" />
+                    </td>
+                </tr>
+
+                <!-- Kimya Satırı -->
+                <tr>
+                    <th class="ptb-7 br1">
+                        <!-- <span id="tm_cheap_chemistry">Kimya: Ucuz Olanlar</span> -->
+                    </th>
+                    <td class="br1 bg-type1 text-center  br1">
+                        <!-- <label class="switch">
+                            <input id="tmarket_qs_chemistry" name="tmarket_qs_chemistry" type="checkbox">
+                            <span class="slider round"></span>
+                        </label> -->
+                    </td>
+                    <td class="text-center br1"></td>
+                    <td class="bg-type1 text-center"></td>
+                </tr>
+
+                <!-- Teknik Direktör Satırı -->
+                <tr>
+                    <th class="ptb-7 br1"><span id="tm_cheap_manager">Teknik Direktör: Ucuz Olanlar</span></th>
+                    <td class="bg-type1 br1 text-center  br1">
+                        <label class="switch">
+                            <!-- <input id="tmarket_qs_manager" name="tmarket_qs_manager" type="checkbox"> -->
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="text-center br1"></td>
+                    <td class="bg-type1 text-center"></td>
+                </tr>
+
+                <!-- Diğer Öğeler Satırı -->
+                <tr>
+                    <th class="ptb-7 br1"><span id="tm_other_items">Diğer Öğeler</span></th>
+                    <td class="bg-type1 text-center  br1">
+                        <!-- <label class="switch">
+                            <input id="tmarket_qs_other" name="tmarket_qs_other" type="checkbox">
+                            <span class="slider round"></span>
+                        </label> -->
+                    </td>
+                    <td class="br1 text-center">
+                        <!-- <label class="switch">
+                            <input id="tmarket_s2c_others" name="tmarket_s2c_others" type="checkbox">
+                            <span class="slider round"></span>
+                        </label> -->
+                    </td>
+                    <td class="bg-type1 text-center">
+                        <!-- <label class="switch">
+                            <input id="tmarket_s2tl_others" name="tmarket_s2tl_others" type="checkbox">
+                            <span class="slider round"></span>
+                        </label> -->
+                    </td>
+                </tr>
+
+                <!-- En Düşük Fiyat Satırı -->
+                <tr>
+                    <th class="ptb-7 br1"><span id="tm_if_min_price">En Düşük Fiyatsa</span></th>
+                    <td class="bg-type1 text-center  br1">
+                        <!-- <label class="switch" hidden>
+                            <input id="tmarket_qs_if_min_price" name="tmarket_qs_if_min_price" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>  -->
+                        <!-- <input id="tmarket_qs_if_min_price_rating_limit"  name="tmarket_qs_if_min_price_rating_limit" class="customInput text-center" style="width: 90px !important;" type="text" placeholder="-" /> -->
+
+                    </td>
+                    <td class="text-center br1">
+                        <label class="switch" hidden>
+                            <input id="tmarket_s2c_if_min_price" name="tmarket_s2c_if_min_price" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <input id="tmarket_s2c_if_min_price_rating_limit" name="tmarket_s2c_if_min_price_rating_limit" class="customInput text-center" type="text" placeholder="-" style="width: 90px;" />
+
+                    </td>
+                    <td class="bg-type1 text-center"></td>
+                </tr>
+
+                <!-- Duplicate Rating Satırı -->
+                <tr>
+                    <th class="ptb-7 br1"><span id="tm_duplicate_rating">Duplicate Rating</span></th>
+                    <td class="bg-type1 text-center br1">
+                        <!-- <input id="tmarket_qs_duplicate_max_rating"  name="tmarket_qs_duplicate_max_rating" class="customInput text-center " type="text" placeholder="-" style="width: 90px !important;" /> -->
+                    </td>
+                    <td class="text-center br1"></td>
+                    <td class="bg-type1 text-center"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Yeni -->
+    <div class="content_box">
+
+        <table class="layout-table mt-2 mb-2" style="width:100%; border-collapse:collapse;" border="0">
+            <tbody>
+                <tr>
+                    <td style="vertical-align:middle;">
+                        <div class="form-group-row">
+                            <div class="d-flex" style="align-items: baseline;">
+                                <label id="tmarket_run_auto_text" class="fut-font"></label>
+                                <div class="number-input shadow-lg" style="margin-left: 10px;">
+                                    <button id="btnMinus"><i class="fa-solid fa-minus"></i></button>
+                                    <input id="tmarket_rerun_min" class="customInput" style="width: 45px;
+    padding-right: 0px;" name="tmarket_rerun_min" type="number" value="30" min="30" max="90" disabled>
+                                    <button id="btnPlus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+
+                                <!-- <input id="tmarket_rerun_min"  name="tmarket_rerun_min" class="customInput text-center w-100" type="number" placeholder="-" style="    width: 50px ! IMPORTANT; padding-right: 0px;padding-left: 12px; 
+    margin-left: 20px;" />-->
+                                <label id="tmarket_run_auto_duration" class="fut-font opacity-50 ml-2"></label>
+                                <label id="tmarket_run_auto_left_minutes" class="ml-2"></label>
+                            </div>
+                            <label class="switch ml-1">
+                                <input id="tmarket_run_auto" name="tmarket_run_auto" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td style="width:1%; white-space:nowrap; vertical-align:middle;">
+                        <!-- Boş hücre: Gerekirse ikon/aksiyon koymak için -->
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="vertical-align:middle;">
+                        <div class="form-group-row">
+                            <div class="d-flex">
+                                <label id="tmarket_sell_club_players_span" class="fut-font"></label>
+                                <label id="exclude_active_squad_players" class="fut-font opacity-50 ml-2"></label>
+                            </div>
+                            <label class="switch ml-1">
+                                <input id="tmarket_sell_club_players" name="tmarket_sell_club_players" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td style="width:1%; white-space:nowrap; vertical-align:middle;">
+                        <!-- Boş hücre -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table id="tblQuickSell" class="main-table mt-2 mb-2">
+            <tbody class="table-group">
+                <tr class="section-title">
+                    <td colspan="2">
+                        <span id="tm_quick_sell" class="group-sbc-header">Hızlı Sat</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="split-row">
+                            <div id="trCheapChemistry" class="info-group border-right">
+                                <span id="tm_cheap_chemistry">Kimya: Ucuz Olanlar</span>
+                                <label class="switch">
+                                    <input id="tmarket_qs_chemistry" name="tmarket_qs_chemistry" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div id="trCheapKit" class="info-group">
+                                <span id="cheap_kits" class="ml-4">Ucuz Formalar</span>
+                                <label class="switch">
+                                    <input id="tmarket_qs_kit" name="tmarket_qs_kit"  type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </td>
+                    <!-- <td class="text-center"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td> -->
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="split-row">
+                            <div id="trCheapManager" class="info-group border-right">
+                                <span id="cheap_managers">Ucuz Teknik Direktörler</span>
+                                <label class="switch">
+                                    <input id="tmarket_qs_manager" name="tmarket_qs_manager" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div id="trOtherCheapItems" class="info-group">
+                                <span id="other_items_cheap" class="ml-4">
+                                    Diğer Öğeler
+                                </span>
+                                <label class="switch">
+                                    <input id="tmarket_qs_other" name="tmarket_qs_other" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr id="trQuickSellPlayersDirect">
+                    <td class="item-name">
+                        <div class="d-flex" style="width: 100px;">
+                            <span id="direct" style="margin-top: 5px;">Direkt</span>
+                            <div id="transferToggleTradeable" class="icon-circle-tra ml-1 mt-1"><i class="fas fa-exchange-alt"></i></div>
+                            <div id="transferToggleUntradeable" class="icon-circle-unt ml-1 mt-1"><i class="fas fa-exchange-alt"></i></div>
+                        </div>
+                        <input id="tmarket_qs_rating_min" name="tmarket_qs_rating_min" type="text" class="ml-1 customInput text-center" style="width: 50px;height: 35px;" placeholder="Min">
+                        <input id="tmarket_qs_rating_max" name="tmarket_qs_rating_max" type="text" class="customInput text-center px-2" style="width: 50px;height: 35px;" placeholder="Max">
+                        <select id="tmarket_qs_rarity_id" name="tmarket_qs_rarity_id" class="customInput" style="width: 92px; height: 35px;"></select>
+                    </td>
+                    <td class="text-center"><label class="switch"><input id="tmarket_qs_direct" name="tmarket_qs_direct" type="checkbox"><span class="slider round"></span></label></td>
+                    <!-- <td class="empty-cell"></td> -->
+                </tr>
+                <tr id="trQuickSellIfMinPrice">
+                    <td class="item-name">
+                        <span id="if_min_price" style="    width: 90px;
+    margin-top: 5px;">En Düşük Fiyat İse</span>
+
+                        <input id="tmarket_qs_if_min_price_rating_min" name="tmarket_qs_if_min_price_rating_min" type="text" class="ml-3 customInput text-center" style="width: 50px;height: 35px;" placeholder="Min">
+
+                        <input id="tmarket_qs_if_min_price_rating_max" name="tmarket_qs_if_min_price_rating_max" type="text" class="customInput text-center px-2" style="width: 50px;height: 35px;" placeholder="Max">
+
+                        <select id="tmarket_qs_if_min_price_list_type" name="tmarket_qs_if_min_price_list_type" class="customInput" style="width: 90px;height: 35px;"></select>
+
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                        <input id="tmarket_qs_if_min_price" name="tmarket_qs_if_min_price" type="checkbox" placeholder="Max">
+                        <span class="slider round"></span>
+                    </label>
+                    </td>
+                    <!-- <td class="text-center"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td> -->
+                </tr>
+                <tr id="trQuickSellMaxDupRating">
+                    <td class="item-name">
+                        <span id="max_dup_rating" style="margin-top: 4px;width: 160px;">Maks. Kopya Rating</span>
+                        <input id="tmarket_qs_duplicate_max_rating" name="tmarket_qs_duplicate_max_rating" type="text" class="customInput text-center ml-2" style="width: 50px;height: 35px;" placeholder="Max">
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input id="tmarket_qs_duplicate" name="tmarket_qs_duplicate" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table id="tblSendToClub" class="main-table mt-2 mb-2">
+
+            <tbody class="table-group">
+                <tr id="trSendToClub" class="section-title">
+                    <td>
+                        <span id="tm_send_to_club" class="group-sbc-header">Kulübe Gönder</span>
+
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input id="tmarket_s2c" name="tmarket_s2c" type="checkbox"><span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr id="trSendToClubDirect">
+                    <td class="item-name">
+                        <div style="width: 100px;margin-top: 5px;"><span id="direct3">Direkt</span></div>
+                        <input id="tmarket_s2c_direct_min_rating" name="tmarket_s2c_direct_min_rating" type="text" class="ml-2 customInput text-center" style="width: 50px;height: 35px;" placeholder="Min">
+                        <input id="tmarket_s2c_direct_max_rating" name="tmarket_s2c_direct_max_rating" type="text" class="customInput text-center px-2" style="width: 50px;height: 35px;" placeholder="Max">
+                        <select id="tmarket_s2c_rarity_id" name="tmarket_s2c_rarity_id" class="customInput" style="width: 90px; height: 35px;"></select>
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input id="tmarket_s2c_direct" name="tmarket_s2c_direct" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <!-- <td  class="empty-cell"></td> -->
+                </tr>
+                <tr id="trSendToClubIfMinPrice">
+                    <td class="item-name">
+                        <div style="width: 100px;margin-top: 5px;"><span id="if_min_price2">En Düşük Fiyat İse</span></div>
+                        <input id="tmarket_s2c_if_min_price_rating_min" name="tmarket_s2c_if_min_price_rating_min" type="text" class="ml-2 customInput text-center" style="width: 50px;height: 35px;" placeholder="Min">
+                        <input id="tmarket_s2c_if_min_price_rating_max" name="tmarket_s2c_if_min_price_rating_max" type="text" class="customInput text-center px-2" style="width: 50px;height: 35px;" placeholder="Max">
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input id="tmarket_s2c_min_price" name="tmarket_s2c_min_price"  type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <!-- <td  class="text-center"><label class="switch"><input id="tmarket_s2c_min_price_relist" name="tmarket_s2c_min_price_relist"  type="checkbox"><span class="slider round"></span></label></td> -->
+                </tr>
+                <tr id="trSendtoClubOthers">
+                    <td class="item-name">
+                        <span id="other_all_items">Diğer Tüm Öğeler</span>
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input id="tmarket_s2c_others" name="tmarket_s2c_others"  type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <!-- <td class="text-center"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></td> -->
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table id="tblSendToTlist" class="main-table mt-2 mb-2" style="width: 387px;">
+
+            <tbody class="table-group">
+                <tr class="section-title">
+                    <td>
+                        <span id="tm_send_to_tlist" class="group-sbc-header">T.Liste Gönder</span>
+                        <label id="all_items" class="px-2" style="opacity: 0.7;"></label>
+                    </td>
+                    <td class="text-center" style="width: 20px;">
+                        <label class="switch">
+                            <input id="tmarket_s2tl" name="tmarket_s2tl" type="checkbox"><span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table id="tblTMarketSettings" class="price-table mt-2">
+            <thead>
+                <tr class="section-title">
+                    <td class="group-sbc-header" style="width: 110px;">
+                        <span class="px-2">T. Market</span>
+                    </td>
+                    <td class="col-title text-center">
+                        <span id="tm_listing">Listing</span>
+                    </td>
+                    <td class="col-title text-center">
+                        <span id="tm_relist">ReList</span>
+                    </td>
+                </tr>
+            </thead>
+            <!-- TRANSFER MARKET -->
+            <tbody class="table-group">
+
+                <!-- Start Price Row -->
+                <tr>
+                    <td class="item-name">
+                        <span id="tm_start_price">Start Price</span></td>
+                    <td class="bg-type1 text-center  br1">
+                        <input id="tmarket_list_start_price" name="tmarket_list_start_price" style="width: 75px; height: 35px;" class="customInput text-center" type="text" placeholder="-" />
+                    </td>
+                    <td class="text-center">
+                        <input id="tmarket_relist_start_price" name="tmarket_relist_start_price" style="width: 75px; height: 35px;" class="customInput text-center" type="text" placeholder="-" />
+                    </td>
+                </tr>
+
+                <!-- Buy Now Row -->
+                <tr>
+                    <td class="item-name"><span id="tm_buy_now">Buy Now</span></td>
+                    <td class="bg-type1 text-center   br1">
+                        <input id="tmarket_list_buy_now_price_" name="tmarket_list_buy_now_price_" style="width: 75px; height: 35px;" class="customInput text-center" type="text" placeholder="-" />
+                    </td>
+                    <td class="text-center">
+                        <input id="tmarket_relist_buy_now_price" name="tmarket_relist_buy_now_price" style="width: 75px; height: 35px;" class="customInput text-center" type="text" placeholder="-" />
+                    </td>
+                </tr>
+
+                <!-- Compare Price Row -->
+                <tr>
+                    <td class="item-name"><span id="tm_compare_price">Compare Price</span></td>
+                    <td class="bg-type1 text-center  br1">
+                        <!-- Empty cell as per original -->
+                    </td>
+                    <td class="text-center">
+                        <label class="switch">
+                        <input id="tmarket_relist_compare_price" name="tmarket_relist_compare_price" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    </td>
+                </tr>
+
+                <!-- Price Change Row -->
+                <tr>
+                    <td class="item-name"><span id="tm_price_change">Price Change</span></td>
+                    <td class="br1 bg-type1 text-center">
+                        <div class="input-group">
+                            <a id="tmarket_list_price_change_down" class="input-group-addon">-</a>
+                            <input id="tmarket_list_price_change" name="tmarket_list_price_change" class="customInput text-center" style="width: 30px;" type="text" placeholder="-" disabled />
+                            <a id="tmarket_list_price_change_up" class="input-group-addon">+</a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="input-group">
+                            <a id="tmarket_relist_price_change_down" class="input-group-addon">-</a>
+                            <input id="tmarket_relist_price_change" name="tmarket_relist_price_change" class="customInput  text-center" style="width: 30px;" type="text" placeholder="-" disabled />
+                            <a id="tmarket_relist_price_change_up" class="input-group-addon">+</a>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Duration Row -->
+                <tr>
+                    <td class="item-name"><span id="tm_duration">Duration</span></td>
+                    <td class="br1 bg-type1 text-center">
+                        <select id="tmarket_list_duration_id" name="tmarket_list_duration_id" class="customInput w-100">
+                    </select>
+                    </td>
+                    <td class="text-center">
+                        <select id="tmarket_relist_duration_id" name="tmarket_relist_duration_id" class="customInput w-100">
+                    </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="logdata" class="mt-2" hidden>
+            <table id="messageTable" border="1" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <span id="transfermarket_log_type"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_quality"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_rarity"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_rating"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_name"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_price"></span>
+                        </th>
+                        <th class="text-center">
+                            <span id="transfermarket_log_time"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Satırlar buraya eklenecek -->
+                </tbody>
+            </table>
+        </div>
+    </div>

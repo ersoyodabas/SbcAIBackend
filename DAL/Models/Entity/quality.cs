@@ -25,7 +25,5 @@ public partial class quality
 
     public virtual ICollection<player> player { get; set; } = new List<player>();
 
-    public virtual ICollection<quality_lang> quality_lang { get; set; } = new List<quality_lang>();
-
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();
 }

@@ -577,7 +577,8 @@
       "Sbc.DAL/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
+          "Sbc.DTO": "1.0.0"
         },
         "runtime": {
           "Sbc.DAL.dll": {

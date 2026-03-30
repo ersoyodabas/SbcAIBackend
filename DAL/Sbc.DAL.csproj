@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../DTO/Sbc.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -22,6 +22,4 @@ public partial class sbc_category
     public string? name_tr { get; set; }
 
     public virtual ICollection<sbc> sbc { get; set; } = new List<sbc>();
-
-    public virtual ICollection<sbc_category_lang> sbc_category_lang { get; set; } = new List<sbc_category_lang>();
 }

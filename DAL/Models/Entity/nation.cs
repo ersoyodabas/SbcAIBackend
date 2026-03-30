@@ -29,8 +29,6 @@ public partial class nation
 
     public string? code_short_tr { get; set; }
 
-    public virtual ICollection<nation_lang> nation_lang { get; set; } = new List<nation_lang>();
-
     public virtual ICollection<player> player { get; set; } = new List<player>();
 
     public virtual ICollection<sbc_player> sbc_player { get; set; } = new List<sbc_player>();

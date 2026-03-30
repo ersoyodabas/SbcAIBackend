@@ -1592,6 +1592,16 @@
             "rid": "win"
           }
         }
+      },
+      "Sbc.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Sbc.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Sbc.DTO.dll": {}
+        }
       }
     }
   },
@@ -4670,13 +4680,19 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Sbc.DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/Sbc.DTO.csproj",
+      "msbuildProject": "../DTO/Sbc.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.EntityFrameworkCore >= 9.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.8",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.8"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.8",
+      "Sbc.DTO >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4704,7 +4720,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/ersoyo/Projects/SbcAI/Backend/DTO/Sbc.DTO.csproj": {
+              "projectPath": "/Users/ersoyo/Projects/SbcAI/Backend/DTO/Sbc.DTO.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
