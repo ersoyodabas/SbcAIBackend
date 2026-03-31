@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sbc.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99c426bd91a30391bea5cd8a74a167bcd3cbdc36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cbae66240fb46c71563ac349caf2ad9081f2c43")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sbc.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sbc.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

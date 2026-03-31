@@ -7,18 +7,6 @@ using System.Collections;
 namespace Sbc.API.Controllers
 {
     /// <summary>
-    /// Control Panel Model - holds all static assets for control panel
-    /// </summary>
-    public class CpanelModel
-    {
-        public string css { get; set; }
-        public string html_app { get; set; }
-        public ArrayList html_modals { get; set; }
-        public ArrayList html_features { get; set; }
-        public string loc { get; set; }
-    }
-
-    /// <summary>
     /// Login panel request model - contains frontend information
     /// </summary>
     public class LoginPanelRequest
@@ -28,7 +16,7 @@ namespace Sbc.API.Controllers
         public string lang { get; set; }
     }
 
-    [ApiController]
+    [ApiController]	
     [Route("api/user")]
     public class UserController : ControllerBase
     {
@@ -134,14 +122,6 @@ namespace Sbc.API.Controllers
                     ? (user.membership_end_date.Value - DateTime.UtcNow).Days 
                     : 0;
 
-                // Determine language: use request language if provided, otherwise use user's language preference
-                string targetLang = !string.IsNullOrEmpty(request?.lang) ? request.lang.ToLower() : user.lang_app?.ToLower() ?? "en";
-                Console.WriteLine($"[LoginPanel] Target language - Request: {request?.lang}, User pref: {user.lang_app}, Using: {targetLang}");
-
-                // Load all cpanel static assets (HTML, CSS, JS) with language localization
-                var cpanelModel = LoadCpanelAssets(targetLang);
-                Console.WriteLine($"[LoginPanel] Loaded cpanel assets - CSS: {(cpanelModel.css?.Length ?? 0)} chars, App: {(cpanelModel.html_app != null ? "✅" : "❌")}, Modals: {cpanelModel.html_modals?.Count ?? 0}, Features: {cpanelModel.html_features?.Count ?? 0}, Loc: {(cpanelModel.loc?.Length ?? 0)} chars");
-
                 // Load menus from database (ordered by sort_number)
                 var menusResult = await _menuService.GetAllMenusAsync();
                 ArrayList menusList = new ArrayList();
@@ -183,12 +163,11 @@ namespace Sbc.API.Controllers
                             user.trial_status
                         },
                         menus = menusList,
-                        userStartups = userStartupList,
-                        cpanel = cpanelModel
+                        userStartups = userStartupList
                     }
                 };
 
-                Console.WriteLine($"[LoginPanel] ✅ Response prepared with cpanel assets");
+                Console.WriteLine($"[LoginPanel] ✅ Response prepared");
                 return Ok(response);
             }
             catch (Exception ex)
@@ -229,162 +208,6 @@ namespace Sbc.API.Controllers
                 Console.WriteLine($"[ExtractEmail] ❌ Decoding error: {ex.Message}");
                 return null;
             }
-        }
-
-
-
-        /// <summary>
-        /// Load all cpanel static assets from server_scripts/cpanel directory
-        /// </summary>
-        private CpanelModel LoadCpanelAssets(string lang = "en")
-        {
-            var cpanelModel = new CpanelModel
-            {
-                css = "",
-                html_app = "",
-                html_modals = new ArrayList(),
-                html_features = new ArrayList(),
-                loc = ""
-            };
-
-            try
-            {
-                // Get path to server_scripts/cpanel
-                var cpanelPath = Path.GetFullPath(Path.Combine(
-                    AppContext.BaseDirectory,
-                    "..", "..", "..", "..",
-                    "ExtensionJS", "server_scripts", "cpanel"
-                ));
-
-                Console.WriteLine($"[LoadCpanelAssets] Looking for cpanel assets in: {cpanelPath}");
-
-                if (!Directory.Exists(cpanelPath))
-                {
-                    Console.WriteLine($"[LoadCpanelAssets] ⚠️ Directory does not exist: {cpanelPath}");
-                    return cpanelModel;
-                }
-
-                // Load CSS files from css folder and combine them
-                var cssPath = Path.Combine(cpanelPath, "css");
-                var combinedCss = "";
-                if (Directory.Exists(cssPath))
-                {
-                    Console.WriteLine($"[LoadCpanelAssets] Loading CSS files from: {cssPath}");
-                    var cssFiles = Directory.GetFiles(cssPath, "*.css");
-                    foreach (var cssFile in cssFiles)
-                    {
-                        try
-                        {
-                            var content = System.IO.File.ReadAllText(cssFile);
-                            if (!string.IsNullOrWhiteSpace(content))
-                            {
-                                combinedCss += content + "\n";
-                                Console.WriteLine($"[LoadCpanelAssets] ✅ Loaded CSS: {Path.GetFileName(cssFile)}");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"[LoadCpanelAssets] ❌ Error reading CSS file: {ex.Message}");
-                        }
-                    }
-                    cpanelModel.css = combinedCss.Trim();
-                }
-
-                // Load app.html from views folder first
-                var viewsPath = Path.Combine(cpanelPath, "views");
-                var appHtmlPath = Path.Combine(viewsPath, "app.html");
-                if (System.IO.File.Exists(appHtmlPath))
-                {
-                    try
-                    {
-                        var content = System.IO.File.ReadAllText(appHtmlPath);
-                        if (!string.IsNullOrWhiteSpace(content))
-                        {
-                            cpanelModel.html_app = content;
-                            Console.WriteLine($"[LoadCpanelAssets] ✅ Loaded app.html from views");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"[LoadCpanelAssets] ❌ Error reading app.html: {ex.Message}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"[LoadCpanelAssets] ⚠️ app.html not found at: {appHtmlPath}");
-                }
-
-                // Load other HTML files from views folder
-                if (Directory.Exists(viewsPath))
-                {
-                    Console.WriteLine($"[LoadCpanelAssets] Loading HTML files from: {viewsPath}");
-                    var htmlFiles = Directory.GetFiles(viewsPath, "*.html", SearchOption.AllDirectories);
-                    foreach (var htmlFile in htmlFiles)
-                    {
-                        try
-                        {
-                            var fileName = Path.GetFileName(htmlFile);
-                            
-                            // Skip app.html - already loaded above
-                            if (fileName == "app.html")
-                                continue;
-
-                            var content = System.IO.File.ReadAllText(htmlFile);
-                            if (!string.IsNullOrWhiteSpace(content))
-                            {
-                                // Modal files (_modals subfolder or files starting with _)
-                                if (htmlFile.Contains("_modals") || fileName.StartsWith("_"))
-                                {
-                                    cpanelModel.html_modals.Add(new { name = fileName, content = content });
-                                    Console.WriteLine($"[LoadCpanelAssets] ✅ Loaded modal HTML: {fileName}");
-                                }
-                                else
-                                {
-                                    cpanelModel.html_features.Add(new { name = fileName, content = content });
-                                    Console.WriteLine($"[LoadCpanelAssets] ✅ Loaded feature HTML: {fileName}");
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"[LoadCpanelAssets] ❌ Error reading HTML file: {ex.Message}");
-                        }
-                    }
-                }
-
-                // Load localization file based on language
-                var locPath = Path.Combine(cpanelPath, "loc");
-                var langFile = lang?.ToLower() == "tr" ? "tr.json" : "en.json";
-                var locFilePath = Path.Combine(locPath, langFile);
-                if (System.IO.File.Exists(locFilePath))
-                {
-                    try
-                    {
-                        var locContent = System.IO.File.ReadAllText(locFilePath);
-                        if (!string.IsNullOrWhiteSpace(locContent))
-                        {
-                            cpanelModel.loc = locContent;
-                            Console.WriteLine($"[LoadCpanelAssets] ✅ Loaded localization: {langFile} ({locContent.Length} chars)");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"[LoadCpanelAssets] ❌ Error reading localization file: {ex.Message}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"[LoadCpanelAssets] ⚠️ Localization file not found at: {locFilePath}");
-                }
-
-                Console.WriteLine($"[LoadCpanelAssets] ✅ Completed - CSS: {(cpanelModel.css?.Length ?? 0)} chars, App: {(cpanelModel.html_app != null ? "✅" : "❌")}, Modals: {cpanelModel.html_modals.Count}, Features: {cpanelModel.html_features.Count}, Loc: {(cpanelModel.loc?.Length ?? 0)} chars");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[LoadCpanelAssets] ❌ Error: {ex.Message}");
-            }
-
-            return cpanelModel;
         }
     }
 }
